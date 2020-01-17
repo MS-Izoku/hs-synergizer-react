@@ -1,29 +1,21 @@
-import React, { Component } from "react";
-import TCGCard from "../components/TCGCard";
+import React  , { Suspense , lazy } from "react";
+import TCGCard from "../components/core/TCGCard";
+//const TCGCard = lazy(() => import("../components/core/TCGCard"));
 
-export default class TCGCardContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      cards: []
-    };
-  }
-
-  renderCards = () => {
-    this.state.cards.map(card => {
-      return <TCGCard card={card} />;
+const TCGCardContainer = props => {
+  const renderCards = () => {
+    return props.cards.map(card => {
+      return (
+          <TCGCard card={card} key={card.attributes.dbf_id} />
+      );
     });
   };
 
-  defaultRender = () => {
-    <div>Waiting For Card Data</div>;
-  };
+  return (
+    <div className="card-grid">
+      {renderCards()}
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div className="card-grid">
-        {this.state.cards.length > 1 ? this.renderCards() : this.defaultRender}
-      </div>
-    );
-  }
-}
+export default TCGCardContainer;

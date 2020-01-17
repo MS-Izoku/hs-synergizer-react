@@ -1,26 +1,43 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
 //#region page imports
-import DeckBuilder from './pages/DeckBuilder'
-import UserProfile from './pages/UserProfile'
+import DeckBuilder from "./pages/DeckBuilder";
+import UserProfile from "./pages/UserProfile";
+import LandingPage from './pages/LandingPage'
 //#endregion
 
-class App extends Component() {
-  constructor(){
-    super()
+import Footer from './components/core/Footer'
+import Header from './components/core/Header'
+import { getCards } from "./AsyncHandler";
+
+
+class App extends Component {
+  constructor() {
+    super();
     this.state = {
-
-    }
+      cards: []
+    };
   }
 
-  componentDidMount(){
+  componentDidMount() {
+    fetch("http://localhost:3000/cards/wild")
+      .then(resp => resp.json())
+      .then(cards => {
+        const formattedData = cards.data.flat()
+        //console.log(formattedData[0].attributes)
+        this.setState({cards: formattedData });
+        //debugger;
+      });
   }
 
-  render(){
+  render() {
     return (
       <div className="app">
-        <DeckBuilder/>
+        <Header />
+        {/* <DeckBuilder cards={this.state.cards} /> */}
+        <LandingPage />
+        <Footer />
       </div>
     );
   }
