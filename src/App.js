@@ -4,13 +4,13 @@ import "./App.css";
 //#region page imports
 import DeckBuilder from "./pages/DeckBuilder";
 import UserProfile from "./pages/UserProfile";
-import LandingPage from './pages/LandingPage'
+import LandingPage from "./pages/LandingPage";
+import ForumHome from "./pages/ForumHome";
 //#endregion
 
-import Footer from './components/core/Footer'
-import Header from './components/core/Header'
+import Footer from "./components/core/Footer";
+import Header from "./components/core/Header";
 import { getCards } from "./AsyncHandler";
-
 
 class App extends Component {
   constructor() {
@@ -24,9 +24,9 @@ class App extends Component {
     fetch("http://localhost:3000/cards/wild")
       .then(resp => resp.json())
       .then(cards => {
-        const formattedData = cards.data.flat()
+        const formattedData = cards.data.flat();
         //console.log(formattedData[0].attributes)
-        this.setState({cards: formattedData });
+        this.setState({ cards: formattedData });
         //debugger;
       });
   }
@@ -37,6 +37,7 @@ class App extends Component {
         <Header />
         {/* <DeckBuilder cards={this.state.cards} /> */}
         <LandingPage />
+        <ForumHome posts={tempData.posts} />
         <Footer />
       </div>
     );
@@ -44,3 +45,10 @@ class App extends Component {
 }
 
 export default App;
+
+export const tempData = {
+  posts: [
+    { title: "Post Title", content: "Post Content Goes Here" , views: 20 , upvotes: 10 , downvotes: 0},
+
+  ]
+};

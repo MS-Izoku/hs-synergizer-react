@@ -19,9 +19,7 @@ export default class LandingPage extends Component {
     return (
       <section className="container">
         <div className="row">
-          <div className="col" />
-          <DeckCardContainer decks={this.state.decks} />
-          <div className="col" />
+          <DeckCardContainer decks={this.state.decks} containerName="Hot Decks"/>
         </div>
       </section>
     );
