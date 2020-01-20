@@ -25,9 +25,7 @@ class App extends Component {
       .then(resp => resp.json())
       .then(cards => {
         const formattedData = cards.data.flat();
-        //console.log(formattedData[0].attributes)
         this.setState({ cards: formattedData });
-        //debugger;
       });
   }
 
@@ -35,9 +33,8 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        {/* <DeckBuilder cards={this.state.cards} /> */}
         <LandingPage />
-        <ForumHome posts={tempData.posts} />
+        <ForumHome threads={tempData.forumThreads} />
         <Footer />
       </div>
     );
@@ -48,7 +45,171 @@ export default App;
 
 export const tempData = {
   posts: [
-    { title: "Post Title", content: "Post Content Goes Here" , views: 20 , upvotes: 10 , downvotes: 0},
-
+    {
+      title: "Post Title",
+      body: "Post Content Goes Here",
+      views: 20,
+      upvotes: 10,
+      downvotes: 0
+    }
+  ],
+  forumThreads: [
+    {
+      name: "Thread 1",
+      title: "Thread Title",
+      body: "Content Goes Here",
+      posts: [
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        }
+      ]
+    },
+    {
+      title: "Thread Title",
+      body: "Post Body Goes Here",
+      posts: [
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        }
+      ]
+    }
   ]
 };
