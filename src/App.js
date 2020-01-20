@@ -1,26 +1,398 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//#region page imports
+import DeckBuilder from "./pages/DeckBuilder";
+import UserProfile from "./pages/UserProfile";
+import LandingPage from "./pages/LandingPage";
+import ForumHome from "./pages/ForumHome";
+//#endregion
+
+import Footer from "./components/core/Footer";
+import Header from "./components/core/Header";
+import { getCards } from "./AsyncHandler";
+
+import Comment from "./components/Comment";
+import ForumPost from "./components/forum/ForumPost";
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      cards: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/cards/wild")
+      .then(resp => resp.json())
+      .then(cards => {
+        const formattedData = cards.data.flat();
+        this.setState({ cards: formattedData });
+      });
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <Header />
+        <LandingPage />
+        <ForumHome
+          threads={[
+            tempData.forumThreads[0],
+            tempData.forumThreads[1],
+            tempData.forumThreads[2],
+            tempData.forumThreads[3]
+          ]}
+        />
+        {/* <ForumPost post={tempData.forumThreads[0].posts[0]}/> */}
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
+
+export const tempData = {
+  comment: {
+    body: "<p><strong>I am a Comment!</strong></p>",
+    user: {
+      username: "Indie",
+      avatar: "#"
+    }
+  },
+
+  posts: [
+    {
+      title: "Post Title",
+      body: "Post Content Goes Here",
+      views: 20,
+      upvotes: 10,
+      downvotes: 0
+    }
+  ],
+  forumThreads: [
+    {
+      name: "Thread 1",
+      title: "Thread Title",
+      body: "Content Goes Here",
+      views: 20,
+      upvotes: 10,
+      posts: [
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        }
+      ]
+    },
+    {
+      title: "Thread Title",
+      body: "Post Body Goes Here",
+      views: 20,
+      upvotes: 10,
+      posts: [
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        }
+      ]
+    },
+    {
+      title: "Thread Title",
+      body: "Post Body Goes Here",
+      views: 20,
+      upvotes: 10,
+      posts: [
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        }
+      ]
+    },
+    {
+      title: "Thread Title",
+      body: "Post Body Goes Here",
+      views: 20,
+      upvotes: 10,
+      posts: [
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        }
+      ]
+    }
+  ]
+};

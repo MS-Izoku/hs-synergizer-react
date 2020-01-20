@@ -9,18 +9,18 @@ export default class DeckViewer extends Component{
     constructor(){
         super()
         this.state = {
-            cards = []
+            deckCards: []
         }
     }
-
     renderCards = () =>{
-       this.state.cards.map(card => <TCGCardDeckBuilder card={card}/>)
+        console.log("RENDERING CARDS IN VIEWER")
+       this.props.cards.map(card => <TCGCardDeckBuilder card={card}/>)
     }
 
     render(){
         return <div className="deck-viewer">
-            <SaveDeckButton deck={cards} />
-            {this.state.cards.length > 1 ? this.renderCards() : null}
+            {/* <SaveDeckButton deck={this.state.deckCards} /> */}
+            {this.props.cards.length > 1 ? this.renderCards() : <div> No Cards Found </div>}
         </div>
     }
 }
