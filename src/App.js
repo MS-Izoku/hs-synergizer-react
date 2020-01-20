@@ -37,7 +37,14 @@ class App extends Component {
       <div className="app">
         <Header />
         <LandingPage />
-        <ForumHome threads={tempData.forumThreads} />
+        <ForumHome
+          threads={[
+            tempData.forumThreads[0],
+            tempData.forumThreads[1],
+            tempData.forumThreads[2],
+            tempData.forumThreads[3]
+          ]}
+        />
         {/* <ForumPost post={tempData.forumThreads[0].posts[0]}/> */}
         <Footer />
       </div>
@@ -70,6 +77,166 @@ export const tempData = {
       name: "Thread 1",
       title: "Thread Title",
       body: "Content Goes Here",
+      views: 20,
+      upvotes: 10,
+      posts: [
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        }
+      ]
+    },
+    {
+      title: "Thread Title",
+      body: "Post Body Goes Here",
+      views: 20,
+      upvotes: 10,
+      posts: [
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        },
+        {
+          content: "Post Content Goes Here",
+          views: 20,
+          upvotes: 10,
+          downvotes: 0
+        }
+      ]
+    },
+    {
+      title: "Thread Title",
+      body: "Post Body Goes Here",
       views: 20,
       upvotes: 10,
       posts: [
