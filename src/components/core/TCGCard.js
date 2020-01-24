@@ -1,10 +1,16 @@
-import React from 'react'
+import React from "react";
 
 // needs a "card" prop
-const TCGCard = (props) =>{
-    return <div>
-        <img src={props.card.attributes.img} alt="card-img"/>
+const TCGCard = props => {
+  const defaultImg = "https://i.ya-webdesign.com/images/hearthstone-card-png-1.png";
+  return (
+    <div className="tcg-card" id={`${props.card.dbfId}-dictionary-card`}>
+      <img
+        src={props.card.img !== undefined ? props.card.img : defaultImg}
+        alt={`${props.card.dbfId}-img`}
+      />
     </div>
-}
+  );
+};
 
-export default TCGCard
+export default TCGCard;

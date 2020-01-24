@@ -15,6 +15,7 @@ import { getCards } from "./AsyncHandler";
 
 import Comment from "./components/Comment";
 import ForumPost from "./components/forum/ForumPost";
+import CardDictionary from "./pages/CardDictionary";
 
 class App extends Component {
   constructor() {
@@ -30,7 +31,7 @@ class App extends Component {
       .then(cards => {
         const formattedData = cards.data.flat();
         this.setState({ cards: formattedData });
-      });
+      })
   }
 
   render() {
@@ -39,6 +40,7 @@ class App extends Component {
         <Header />
         <main>
           <LandingPage />
+          <CardDictionary />
           <ForumHome
             threads={[
               tempData.forumThreads[0],

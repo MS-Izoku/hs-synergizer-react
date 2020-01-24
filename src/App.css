@@ -40,6 +40,25 @@ body {
   background: var(--hs-dark-brown);
 }
 
+/*#region TCG Cards */
+.tcg-card-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+
+}
+
+.tcg-card img{
+  flex-grow: 2;
+  min-width: 309px;
+  min-height: 465px;
+  width: 309px;
+  height: 465px;
+}
+/*#endregion */
+
 /*#region Deck Cards */
 @media screen and (min-width: 926px), (max-width: 600px){
   .deck-card {
