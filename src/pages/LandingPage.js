@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DeckCardContainer from "../containers/DeckCardContainer";
+import LandingSplash from "../components/LandingSplash";
 
 export default class LandingPage extends Component {
   constructor() {
@@ -18,8 +19,8 @@ export default class LandingPage extends Component {
   render() {
     return (
       <section>
-        
-          <DeckCardContainer decks={this.state.decks} containerName="Hot Decks"/>
+        <LandingSplash/>
+        <DeckCardContainer decks={this.state.decks} containerName="Hot Decks" />
       </section>
     );
   }

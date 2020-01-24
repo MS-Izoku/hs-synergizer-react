@@ -18,7 +18,7 @@ const DeckCardContainer = props => {
         </h2>
       </header>
 
-      <div className="landing-card-grid"> {renderDecks()}</div>
+      <div className="landing-card-grid pt-2"> {renderDecks()}</div>
     </>
   );
 };

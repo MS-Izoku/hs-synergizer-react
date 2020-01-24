@@ -5,12 +5,14 @@ class DeckCard extends Component {
     super(props);
     this.state = {
       liked: false,
-      like_count: 0
+      likeCount: 0
     };
   }
   handleHover = () => {
     console.log("Hovering (PlaceHolder)");
   };
+
+
 
   handleLike = () => {
     console.log("Liking Post (PlaceHolder)");
@@ -25,28 +27,39 @@ class DeckCard extends Component {
 
   render() {
     return (
-      <div className="flex-grid bg-info">
-        <div className="deck-card">
+      <div className="">
+        <div className="deck-card px-2 py-2">
           <header>
-            <h2>DECK NAME</h2>
+            <h2>
+              {this.props.deck.name !== undefined ? this.props.deck.name : "--Deck Name--"}
+            </h2>
           </header>
-          <div className="flex">
+          <div className="flex padding-10">
             <img src="#" alt="divider" className="divider" />
-            <img src="#" alt="set-image" className="icon" />
+            <img
+              src={this.props.deck.set_img !== undefined ? this.props.deck.setImg : "#"}
+              alt="set-image"
+              className="icon"
+            />
             <img src="#" alt="divider" className="divider" />
           </div>
           <div className="flex deck-stats">
             <div className="flex">
-              <img src="#" alt="dust-img" className="icon" /> 00000
+              <img src="#" alt="dust-img" className="icon" />{" "}
+              {this.props.deck.dustCost !== undefined ? this.props.deck.dustCost : "-----"}
             </div>
-            <div></div>
-            <div className="">Curve</div>
+            <hr />
+            <img src="#" alt="deck-curve" />
           </div>
         </div>
 
-        <p className={(this.state.liked ? "liked" : "") + " upvote-container flex"}>
-          <img src="#" alt="upvote-icon" onClick={this.handleLike} />{" "}
-          {this.state.like_count !== null ? this.state.like_count : "X"}
+        <p
+          className={
+            (this.state.liked ? "liked" : "") + " upvote-container flex"
+          }
+        >
+          <img src="#" alt="upvote" onClick={this.handleLike} />{" " + this.state.likeCount}
+          
         </p>
       </div>
     );
