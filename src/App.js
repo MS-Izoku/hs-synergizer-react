@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import ForumHome from "./pages/ForumHome";
 //#endregion
 
+import { MDBContainer } from "mdbreact";
 import Footer from "./components/core/Footer";
 import Header from "./components/core/Header";
 import { getCards } from "./AsyncHandler";
@@ -34,20 +35,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <>
         <Header />
-        <LandingPage />
-        <ForumHome
-          threads={[
-            tempData.forumThreads[0],
-            tempData.forumThreads[1],
-            tempData.forumThreads[2],
-            tempData.forumThreads[3]
-          ]}
-        />
-        {/* <ForumPost post={tempData.forumThreads[0].posts[0]}/> */}
+        <main>
+          <LandingPage />
+          <ForumHome
+            threads={[
+              tempData.forumThreads[0],
+              tempData.forumThreads[1],
+              tempData.forumThreads[2],
+              tempData.forumThreads[3]
+            ]}
+          />
+        </main>
+
         <Footer />
-      </div>
+      </>
     );
   }
 }

@@ -1,100 +1,132 @@
-#root{
+#root {
   --hs-light-brown: #ddb225;
   --hs-medium-brown: #927f3f;
   --hs-dark-brown: #6d5c25;
 
   --background: #202e80;
-  background-color: var(--background)
+  background-color: var(--background);
 }
 
-body{
+/*#region Base Components (ie: body) */
+body {
   background-color: #202e80;
 }
+/*#engregion */
 
-.nav-header{
+.flex {
+  display: flex;
+}
+
+.nav-header {
   background-color: var(--hs-medium-brown);
+  padding-top: 200px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.nav-footer{
-  background: var(--hs-dark-brown)
+.nav-header-container {
+  padding-top: 5em;
 }
 
-/* .landing-card-grid {
-  display: grid;
-  grid-template-columns: 50vh 50vh 50vh;
-  grid-template-rows: auto;
-  grid-gap: 0.5em;
-  border-radius: 0.25em;
-} */
-@media screen and (min-width: 512px){
-  .landing-card-grid {
-    display: grid;
-    grid-template-columns: 25vh 25vh 25vh;
-    grid-template-rows: auto;
-    grid-gap: 0.5em;
-    border-radius: 0.25em;
+#site-logo {
+  --offset: 45%;
+  display: inline-flex;
+  margin-left: var(--offset);
+  /* transform: translateX(var(--offset)); */
+
+}
+
+.nav-footer {
+  background: var(--hs-dark-brown);
+}
+
+/*#region Deck Cards */
+@media screen and (min-width: 926px), (max-width: 600px){
+  .deck-card {
+    background: var(--hs-medium-brown);
+    border: 5px solid var(--hs-dark-brown);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-grow: 2;
+    min-width: 20em;
+    min-height: 5em;
+    width: 29em;
+    border-radius: 0.5em;
   }
 }
 
-@media screen and (min-width: 740px){
-  .landing-card-grid {
-    display: grid;
-    grid-template-columns: 40vh 40vh 40vh;
-    grid-template-rows: auto;
-    grid-gap: 0.5em;
-    border-radius: 0.25em;
+@media screen and (max-width: 925px){
+  .deck-card{
+    /* background: var(--hs-medium-brown); */
+    background: blue;
+    border: 5px solid var(--hs-dark-brown);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-grow: 1;
+    min-width: 25em;
+    min-height: 5em;
+    width: 25em;
+    scale: 50%;
+    border-radius: 0.5em;
   }
 }
 
-@media screen and (min-width: 1080px){
-  .landing-card-grid {
-    display: grid;
-    grid-template-columns: 50vh 50vh 50vh;
-    grid-template-rows: auto;
-    grid-gap: 0.5em;
-    border-radius: 0.25em;
-  }
+.deck-card div.flex {
+  align-content: center;
+  justify-content: center;
 }
 
-
-
-
-
-.forum-layout-grid {
-  display: grid;
-  grid-template-columns: 50vh;
-  grid-template-rows: auto;
-  border: 5px solid var(--hs-dark-brown);
-  border-radius: 1em;
+.deck-card div.deck-stats {
+  justify-content: space-evenly;
 }
 
-.deck-card{
-  background: white;
-  border-radius: 0.5em;
+.divider {
+  min-width: 40%;
 }
+/*#endregion */
 
-@media screen and (min-width: 1080px){
-  .upvote-container{
-    position: relative;
-    top: 5%;
-  }
-}
-
-
-.upvote-container p{
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  background: red;
-}
-
-.upvote-container .liked{
-  font-weight: bold;
-  color: red;
-}
-
-
-.debug-selector{
+.debug-selector {
   border: 5px solid red;
 }
+
+/*#region Side Nav */
+#side-nav-toggle{
+  color: white;
+}
+#side-nav-toggle:hover{
+  color: black;
+}
+
+#side-nav-toggle:active{
+  color: red;
+  /* Make it spin here or something */
+}
+/*#endregion */
+
+/* CONTAINERS and GRIDS */
+/*#region Containers and Grids */
+.landing-card-grid {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0px;
+  flex-wrap: wrap;
+}
+
+.upvote-container {
+  background: var(--hs-medium-brown);
+  border: 5px solid var(--hs-dark-brown);
+  flex-wrap: wrap;
+  justify-content: center;
+  top: -10%;
+  left: 35%;
+  padding: 0.25em;
+  position: relative;
+  width: 32%;
+}
+
+.side-nav {
+}
+
+/*#endregion */
