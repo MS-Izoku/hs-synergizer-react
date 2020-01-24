@@ -34,7 +34,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <>
         <Header />
         <LandingPage />
         <ForumHome
@@ -45,9 +45,8 @@ class App extends Component {
             tempData.forumThreads[3]
           ]}
         />
-        {/* <ForumPost post={tempData.forumThreads[0].posts[0]}/> */}
         <Footer />
-      </div>
+      </>
     );
   }
 }
