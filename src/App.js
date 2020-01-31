@@ -25,15 +25,6 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("http://localhost:3000/cards/wild")
-      .then(resp => resp.json())
-      .then(cards => {
-        const formattedData = cards.data.flat();
-        this.setState({ cards: formattedData });
-      })
-  }
-
   render() {
     return (
       <>

@@ -4,6 +4,11 @@
   --hs-dark-brown: #6d5c25;
 
   --background: #202e80;
+
+  --main-background-image: url(""); /* main background image, WIP */
+  --wood-img: url(""); /* custom wood background image, WIP */
+  --wood-border-img: url(""); /* Custom Border WIP */
+
   background-color: var(--background);
 }
 
@@ -15,6 +20,10 @@ body {
 
 .flex {
   display: flex;
+}
+
+.mouse-follow{
+  
 }
 
 .nav-header {
@@ -44,32 +53,123 @@ body {
 .tcg-card-container{
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-items: center;
-  align-items: center;
+  flex-grow: 3;
+  justify-content: center;
+  margin: 0px;
+  -ms-flex-wrap: wrap;
+}
 
+.tcg-card{
+
+  align-content: center;
+  justify-content: center;
+}
+.tcg-card:hover{
+  background: rgba(256 , 256 , 256 , 0.25)
 }
 
 .tcg-card img{
+  margin: auto;
+  /* min-width: 309px;
+  max-width: 100%;
+  min-width: 50%;
+  max-width: 100%; */
+}
+/*#endregion*/
+
+.paginator{
+  display: flex;
+}
+.paginator .next{
+  border:none;
+}
+
+.paginator .prev{
+  border:none;
+}
+
+
+#card-search-filter-nav{
+  border: 5px solid yellow;
+  background: white;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  /* align-content: space-evenly; */
+}
+
+
+
+#card-search-filter-nav section{
+  border: 5px solid green;
+  background: red;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
   flex-grow: 2;
-  min-width: 309px;
-  min-height: 465px;
-  width: 309px;
-  height: 465px;
+  padding: 1vh;
+}
+
+.main-filter-area{
+  background: yellow;
+}
+
+/*#region Card Dictionary*/
+.mana-tab-container{
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-flow: row;
+}
+
+.mana-tab{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-content: center;
+  background: blue;
+  margin: 1%;
+}
+
+.mana-tab:hover{
+  background: yellow;
+}
+
+.mana-tab:active{
+  background: green;
+}
+
+.mana-tab.active{
+  background: white;
+}
+
+.mana-tab p{
+  margin: auto;
+}
+
+.paginator-tab{
+  background: white;
+
 }
 /*#endregion */
 
+
+/*#endregion */
+
 /*#region Deck Cards */
+
+.deck-card{
+  background: var(--hs-medium-brown);
+  border: 5px solid var(--hs-dark-brown);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-grow: 2;
+  min-width: 20em;
+  min-height: 5em;
+}
 @media screen and (min-width: 926px), (max-width: 600px){
   .deck-card {
-    background: var(--hs-medium-brown);
-    border: 5px solid var(--hs-dark-brown);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    flex-grow: 2;
-    min-width: 20em;
-    min-height: 5em;
     width: 29em;
     border-radius: 0.5em;
   }
@@ -78,7 +178,6 @@ body {
 @media screen and (max-width: 925px){
   .deck-card{
     /* background: var(--hs-medium-brown); */
-    background: blue;
     border: 5px solid var(--hs-dark-brown);
     display: flex;
     flex-direction: column;

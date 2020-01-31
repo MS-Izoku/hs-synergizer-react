@@ -1,5 +1,5 @@
 export const convertCardsFromSerializer = cardData => {
-  return cardData.data.map(card => {
+    return cardData.data.map(card => {
     return {
       id: card.attributes.id,
       name: card.attributes.name,
