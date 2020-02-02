@@ -9,6 +9,9 @@
   --wood-img: url(""); /* custom wood background image, WIP */
   --wood-border-img: url(""); /* Custom Border WIP */
 
+
+  --mouseX: 0px;
+  --mouseY: 0px;
   background-color: var(--background);
 }
 
@@ -23,7 +26,10 @@ body {
 }
 
 .mouse-follow{
-  
+  position: absolute;
+  left: var(--mouseX);
+  top: var(--mouseY);
+
 }
 
 .nav-header {
@@ -60,16 +66,23 @@ body {
 }
 
 .tcg-card{
-
+  display: flex;
   align-content: center;
   justify-content: center;
+  min-width: 20%;
 }
 .tcg-card:hover{
   background: rgba(256 , 256 , 256 , 0.25)
 }
 
 .tcg-card img{
-  margin: auto;
+  image-rendering: optimizeSpeed;
+  width: 75%;
+  /* margin: auto;
+  height: auto;
+  height: auto; */
+  /* max-width: 100%;
+  min-width: 50%; */
   /* min-width: 309px;
   max-width: 100%;
   min-width: 50%;
@@ -79,15 +92,24 @@ body {
 
 .paginator{
   display: flex;
-}
-.paginator .next{
-  border:none;
+  flex-direction: column;
 }
 
-.paginator .prev{
-  border:none;
+.paginator .tabs{
+  
 }
 
+.paginator .tabs .tab{
+  background: red;
+}
+
+.paginator .tabs .tab.active{
+  background: blue;
+}
+
+.paginator .tabs .tab.inactive{
+  background: blue;
+}
 
 #card-search-filter-nav{
   border: 5px solid yellow;
@@ -149,7 +171,11 @@ body {
 
 .paginator-tab{
   background: white;
+  margin: 1vh;
+}
 
+.paginator-tab.active{
+  background: green;
 }
 /*#endregion */
 

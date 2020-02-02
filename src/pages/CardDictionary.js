@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TCGCard from "../components/core/TCGCard";
 import { convertCardsFromSerializer } from "../serializerConverter";
 import { range } from "lodash";
+
 import PrevNextWrapper from "../components/PrevNextWrapper";
 
 export default class CardDictionary extends Component {
@@ -60,7 +61,7 @@ export default class CardDictionary extends Component {
       });
   }
 
-  changeCardPage = pageIndex => {
+  changePage = pageIndex => {
     fetch(`http://localhost:3000/cards/index/${pageIndex}`)
       .then(resp => resp.json())
       .then(json => {
@@ -203,7 +204,7 @@ export default class CardDictionary extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <PrevNextWrapper
           pageCount={this.state.pageCount}
           activeTab={this.state.activeTab}
@@ -221,7 +222,7 @@ export default class CardDictionary extends Component {
             <section id="sorting">{this.sortingArea()}</section>
           </form>
         </div>
-      </div>
+      </>
     );
   }
 }
