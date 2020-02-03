@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { range } from "lodash";
-import TCGCard from "../components/core/TCGCard";
-import { convertCardsFromSerializer } from "../serializerConverter";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 
 class PaginatorTab extends Component {
@@ -13,7 +11,7 @@ class PaginatorTab extends Component {
     };
   }
 
-  clickHandler = () => {
+  generateTabTextValue = () => {
     let tabText = this.props.tabText;
     if (tabText === "first") tabText = 1;
     else if (tabText === "prev") {
@@ -25,7 +23,11 @@ class PaginatorTab extends Component {
           ? this.props.tabCount
           : this.props.activeTab + 1;
     }
-    this.props.setActiveTab(tabText);
+    return tabText;
+  };
+
+  clickHandler = () => {
+    this.props.setActiveTab(this.generateTabTextValue());
   };
 
   style = () => {
@@ -36,7 +38,7 @@ class PaginatorTab extends Component {
 
   render() {
     return (
-      <Link>
+      <Link to={"/page/" + this.generateTabTextValue()}>
         <div className={"tab " + this.style()} onClick={this.clickHandler}>
           {this.props.tabText}
         </div>
@@ -56,19 +58,19 @@ class PaginatorBar extends Component {
   }
 
   pageRange = () => {
-    let pageRange = 3;
+    let pageRange = this.props.range;
     let min = this.props.activeTab - pageRange;
     let max = this.props.activeTab + pageRange;
 
-    if (min <= 0) {
+    if (min <= 1) {
       min = 1;
-      max = pageRange * 2;
+      max = pageRange * 2 + 1;
     }
     if (max > this.props.tabCount) {
       min = this.props.tabCount - pageRange * 2;
       max = this.props.tabCount;
     }
-    return range(min, max);
+    return range(min, max + 1);
   };
 
   renderTabs = () =>
@@ -118,7 +120,6 @@ class PaginatorBar extends Component {
             activeTab={this.props.activeTab}
             setActiveTab={this.props.setActiveTab}
             tabCount={this.props.tabCount}
-            //setActiveTab={this.props.setActiveTab}
           />
           <PaginatorTab
             key={"last"}
@@ -128,7 +129,6 @@ class PaginatorBar extends Component {
             activeTab={this.props.activeTab}
             setActiveTab={this.props.setActiveTab}
             tabCount={this.props.tabCount}
-            //setActiveTab={this.props.setActiveTab}
           />
         </div>
       </div>
@@ -136,7 +136,7 @@ class PaginatorBar extends Component {
   }
 }
 
-export default class PaginatorV2 extends Component {
+export default class Paginator extends Component {
   constructor() {
     super();
     this.state = {
@@ -146,32 +146,9 @@ export default class PaginatorV2 extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("http://localhost:3000/cards/index/1")
-      .then(resp => resp.json())
-      .then(json => {
-        const cards = convertCardsFromSerializer(json.cards);
-        this.setState({
-          cards: cards,
-          pageCount: json.page_count,
-          activeTab: json.page
-        });
-      });
-  }
-
-  handlePageChange = pageNumber => {
-    fetch(`http://localhost:3000/cards/index/${pageNumber}`)
-      .then(resp => resp.json())
-      .then(json => {
-        const cards = convertCardsFromSerializer(json.cards);
-        this.setState({
-          cards: cards,
-          activeTab: json.page
-        });
-      });
-  };
-
   setActiveTab = tabNumber => {
+    if (this.props.handlePageChange !== undefined)
+      this.props.handlePageChange(tabNumber);
     this.setState({ activeTab: tabNumber });
   };
 
@@ -179,19 +156,23 @@ export default class PaginatorV2 extends Component {
     return (
       <Router>
         <div className="paginator">
-          {this.props.fillerComponent === undefined ? (
-            <div>Filler</div>
-          ) : (
-            this.props.fillerComponent()
-          )}
           <PaginatorBar
-            tabCount={this.state.pageCount}
+            tabCount={
+              this.props.pageCount !== undefined ? this.props.pageCount : 20
+            }
             activeTab={this.state.activeTab}
             setActiveTab={this.setActiveTab}
-            count={this.props.range === undefined ? 5 : this.props.range}
+            range={this.props.range === undefined ? 2 : this.props.range}
           />
         </div>
       </Router>
     );
   }
 }
+
+/*
+Usage Notes:
+1) The main component <Paginator /> accepts these props:
+  -handlePageChange(pageNumber) => callback function that allows components to hook into it
+  -pageCount => the total number of pages that can be displayed (defaulted to 20)
+*/

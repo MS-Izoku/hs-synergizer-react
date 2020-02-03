@@ -17,7 +17,7 @@ import Comment from "./components/Comment";
 import ForumPost from "./components/forum/ForumPost";
 import CardDictionary from "./pages/CardDictionary";
 
-import PaginatorV2 from './components/PaginatorV2'
+import PaginatorV2 from './components/Paginator'
 
 class App extends Component {
   constructor() {
