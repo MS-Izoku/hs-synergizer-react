@@ -36,7 +36,7 @@ class App extends Component {
 
           <PaginatorV2 />
 
-          <CardDictionary />
+          {/* <CardDictionary /> */}
           <ForumHome
             threads={[
               tempData.forumThreads[0],

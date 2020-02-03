@@ -9,7 +9,6 @@
   --wood-img: url(""); /* custom wood background image, WIP */
   --wood-border-img: url(""); /* Custom Border WIP */
 
-
   --mouseX: 0px;
   --mouseY: 0px;
   background-color: var(--background);
@@ -25,14 +24,13 @@ body {
   display: flex;
 }
 
-.mouse-follow{
+.mouse-follow {
   position: absolute;
   left: var(--mouseX);
   top: var(--mouseY);
-
 }
 
-.nav-header-wrapper{
+.nav-header-wrapper {
   width: 100%;
   position: fixed;
   margin-bottom: 100px;
@@ -44,28 +42,24 @@ body {
   background: var(--hs-medium-brown);
 }
 
-.nav-header div{
+.nav-header div {
   margin: auto;
 }
 
-.nav-header .link:hover{
+.nav-header .link:hover {
   font-weight: bold;
   color: white;
 }
-.nav-header .link:active{
+.nav-header .link:active {
   font-weight: bold;
   color: grey;
 }
 
-
-#site-logo{
+#site-logo {
   width: 10%;
 }
 
-
-
-
-#site-logo img{
+#site-logo img {
   background: blue;
   min-width: 20%;
 }
@@ -75,7 +69,7 @@ body {
 }
 
 /*#region TCG Cards */
-.tcg-card-container{
+.tcg-card-container {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 3;
@@ -84,68 +78,23 @@ body {
   -ms-flex-wrap: wrap;
 }
 
-.tcg-card{
+.tcg-card {
   display: flex;
   align-content: center;
   justify-content: center;
   min-width: 20%;
 }
-.tcg-card:hover{
-  background: rgba(256 , 256 , 256 , 0.25)
+.tcg-card:hover {
+  background: rgba(256, 256, 256, 0.25);
 }
 
-.tcg-card img{
+.tcg-card img {
   image-rendering: optimizeSpeed;
   width: 75%;
 }
 /*#endregion*/
 
-.paginator{
-  display: flex;
-  flex-direction: column;
-}
-
-.tab-wrapper{
-  display: flex;
-}
-
-.paginator .tabs{
-  display: flex;
-  flex-direction: row;
-}
-
-.paginator .tabs.numerical{
-  display: flex;
-  flex-grow: 3;
-  flex-direction: row;
-  overflow: scroll;
-}
-
-.paginator .tabs a .tab{
-  background: blue;
-  margin: auto;
-  border: 1px solid white;
-  padding: 1em;
-}
-
-/* 
-.paginator .tabs{
-  
-}
-
-.paginator .tabs .tab{
-  background: red;
-}
-
-.paginator .tabs .tab.active{
-  background: blue;
-}
-
-.paginator .tabs .tab.inactive{
-  background: blue;
-} */
-
-#card-search-filter-nav{
+#card-search-filter-nav {
   border: 5px solid yellow;
   background: white;
   display: flex;
@@ -154,9 +103,7 @@ body {
   /* align-content: space-evenly; */
 }
 
-
-
-#card-search-filter-nav section{
+#card-search-filter-nav section {
   border: 5px solid green;
   background: red;
   flex: 1;
@@ -166,19 +113,19 @@ body {
   padding: 1vh;
 }
 
-.main-filter-area{
+.main-filter-area {
   background: yellow;
 }
 
 /*#region Card Dictionary*/
-.mana-tab-container{
+.mana-tab-container {
   display: flex;
   margin: auto;
   flex-direction: row;
   flex-flow: row;
 }
 
-.mana-tab{
+.mana-tab {
   display: flex;
   flex: 1;
   justify-content: center;
@@ -187,38 +134,37 @@ body {
   margin: 1%;
 }
 
-.mana-tab:hover{
+.mana-tab:hover {
   background: yellow;
 }
 
-.mana-tab:active{
+.mana-tab:active {
   background: green;
 }
 
-.mana-tab.active{
+.mana-tab.active {
   background: white;
 }
 
-.mana-tab p{
+.mana-tab p {
   margin: auto;
 }
 
-.paginator-tab{
+.paginator-tab {
   background: white;
   margin: 1vh;
 }
 
-.paginator-tab.active{
+.paginator-tab.active {
   background: green;
 }
 /*#endregion */
-
 
 /*#endregion */
 
 /*#region Deck Cards */
 
-.deck-card{
+.deck-card {
   background: var(--hs-medium-brown);
   border: 5px solid var(--hs-dark-brown);
   display: flex;
@@ -228,15 +174,15 @@ body {
   min-width: 20em;
   min-height: 5em;
 }
-@media screen and (min-width: 926px), (max-width: 600px){
+@media screen and (min-width: 926px), (max-width: 600px) {
   .deck-card {
     width: 29em;
     border-radius: 0.5em;
   }
 }
 
-@media screen and (max-width: 925px){
-  .deck-card{
+@media screen and (max-width: 925px) {
+  .deck-card {
     /* background: var(--hs-medium-brown); */
     border: 5px solid var(--hs-dark-brown);
     display: flex;
@@ -270,14 +216,14 @@ body {
 }
 
 /*#region Side Nav */
-#side-nav-toggle{
+#side-nav-toggle {
   color: white;
 }
-#side-nav-toggle:hover{
+#side-nav-toggle:hover {
   color: black;
 }
 
-#side-nav-toggle:active{
+#side-nav-toggle:active {
   color: red;
   /* Make it spin here or something */
 }
@@ -307,4 +253,50 @@ body {
 .side-nav {
 }
 
+/*#endregion */
+
+/*#region Paginator for Card Dictionary */
+.paginator {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-wrapper {
+  display: flex;
+}
+
+.paginator .tabs {
+  display: flex;
+  flex-direction: row;
+}
+
+.paginator .tabs.navs{
+  width: 100%;
+}
+
+.paginator .tabs.numerical {
+  display: flex;
+  width: 100%;
+  overflow: scroll;
+  justify-content: space-evenly;
+}
+
+
+.paginator .tabs a{
+  display: flex;
+  border: 1px solid white;
+  width: 100%;
+
+}
+.paginator .tabs a .tab {
+  background: blue;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.paginator .tabs.numerical a .tab.active {
+  background: red;
+}
 /*#endregion */
