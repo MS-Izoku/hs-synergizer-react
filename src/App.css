@@ -32,23 +32,42 @@ body {
 
 }
 
+.nav-header-wrapper{
+  width: 100%;
+  position: fixed;
+  margin-bottom: 100px;
+}
+
 .nav-header {
-  background-color: var(--hs-medium-brown);
-  padding-top: 200px;
   display: flex;
   justify-content: space-evenly;
+  background: var(--hs-medium-brown);
 }
 
-.nav-header-container {
-  padding-top: 5em;
+.nav-header div{
+  margin: auto;
 }
 
-#site-logo {
-  --offset: 45%;
-  display: inline-flex;
-  margin-left: var(--offset);
-  /* transform: translateX(var(--offset)); */
+.nav-header .link:hover{
+  font-weight: bold;
+  color: white;
+}
+.nav-header .link:active{
+  font-weight: bold;
+  color: grey;
+}
 
+
+#site-logo{
+  width: 10%;
+}
+
+
+
+
+#site-logo img{
+  background: blue;
+  min-width: 20%;
 }
 
 .nav-footer {
@@ -78,15 +97,6 @@ body {
 .tcg-card img{
   image-rendering: optimizeSpeed;
   width: 75%;
-  /* margin: auto;
-  height: auto;
-  height: auto; */
-  /* max-width: 100%;
-  min-width: 50%; */
-  /* min-width: 309px;
-  max-width: 100%;
-  min-width: 50%;
-  max-width: 100%; */
 }
 /*#endregion*/
 
@@ -95,6 +105,30 @@ body {
   flex-direction: column;
 }
 
+.tab-wrapper{
+  display: flex;
+}
+
+.paginator .tabs{
+  display: flex;
+  flex-direction: row;
+}
+
+.paginator .tabs.numerical{
+  display: flex;
+  flex-grow: 3;
+  flex-direction: row;
+  overflow: scroll;
+}
+
+.paginator .tabs a .tab{
+  background: blue;
+  margin: auto;
+  border: 1px solid white;
+  padding: 1em;
+}
+
+/* 
 .paginator .tabs{
   
 }
@@ -109,7 +143,7 @@ body {
 
 .paginator .tabs .tab.inactive{
   background: blue;
-}
+} */
 
 #card-search-filter-nav{
   border: 5px solid yellow;

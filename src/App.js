@@ -17,6 +17,8 @@ import Comment from "./components/Comment";
 import ForumPost from "./components/forum/ForumPost";
 import CardDictionary from "./pages/CardDictionary";
 
+import PaginatorV2 from './components/PaginatorV2'
+
 class App extends Component {
   constructor() {
     super();
@@ -31,6 +33,9 @@ class App extends Component {
         <Header />
         <main>
           <LandingPage />
+
+          <PaginatorV2 />
+
           <CardDictionary />
           <ForumHome
             threads={[

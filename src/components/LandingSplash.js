@@ -1,7 +1,7 @@
 import React from 'react'
 
 const LandingSplash = () =>{
-    return<div className="bg-info text-center py-5">
+    return<div className="bg-info text-center">
         Landing Splash Screen
     </div>
 }
