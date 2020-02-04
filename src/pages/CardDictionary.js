@@ -3,17 +3,14 @@ import TCGCard from "../components/core/TCGCard";
 import { convertCardsFromSerializer } from "../serializerConverter";
 import { range } from "lodash";
 
-import PrevNextWrapper from "../components/PrevNextWrapper";
+import Paginator from "../components/Paginator";
+import cardData from "../services/CardDataHandler";
 
 export default class CardDictionary extends Component {
   constructor() {
     super();
     this.state = {
-      fetchedIndexes: [],
-      cards: [{ img: "#", name: "card" }],
-      pageCount: 5,
-      activeTab: 1,
-
+      cards: [],
       formState: {
         manaCost: {
           min: 0,
@@ -38,6 +35,27 @@ export default class CardDictionary extends Component {
     };
   }
 
+  //#region lifecycle
+  componentDidMount() {
+    // fetch("http://localhost:3000/cards/index/1")
+    //   .then(resp => resp.json())
+    //   .then(json => {
+    //     console.log("Fetching", json);
+    //     const cards = convertCardsFromSerializer(json.cards);
+    //     this.setState({
+    //       cards: cards,
+    //       pageCount: json.page_count,
+    //       activeTab: json.page
+    //     });
+    //   });
+    console.log(cardData)
+    debugger;
+
+    //this.setState({cards: cardData.getCards().cardData})
+  }
+  //#endregion
+
+  //#region Event Handlers
   onFilterChange = (event, filterOption) => {
     this.setState({
       filters: {
@@ -45,34 +63,6 @@ export default class CardDictionary extends Component {
         active: filterOption
       }
     });
-  };
-
-  componentDidMount() {
-    fetch("http://localhost:3000/cards/index/1")
-      .then(resp => resp.json())
-      .then(json => {
-        console.log("Fetching", json);
-        const cards = convertCardsFromSerializer(json.cards);
-        this.setState({
-          cards: cards,
-          pageCount: json.page_count,
-          activeTab: json.page
-        });
-      });
-  }
-
-  changePage = pageIndex => {
-    fetch(`http://localhost:3000/cards/index/${pageIndex}`)
-      .then(resp => resp.json())
-      .then(json => {
-        console.log("FETCHING");
-        const cards = convertCardsFromSerializer(json.cards);
-        this.setState({
-          activeTab: pageIndex,
-          cards: cards,
-          pageCount: json.page_count
-        });
-      });
   };
 
   handleFilter = () => {};
@@ -87,7 +77,9 @@ export default class CardDictionary extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
   };
+  //#endregion
 
+  //#region Filter JSX
   // Right Area
   mainFilters = () => (
     <>
@@ -157,14 +149,20 @@ export default class CardDictionary extends Component {
       </div>
     );
   };
+  //#endregion
 
   renderCards = () => {
     const cardRenderer = () => {
-      return this.state.cards.map(card => {
-        return <TCGCard card={card} key={card.dbfId + card.name} />;
-      });
+      if(Array.isArray(this.props.cards)){
+        return this.props.cards.map(card => {
+          return <TCGCard card={card} key={card.dbfId + card.name} />;
+        });
+      }
+      else {
+        console.log(this.props.cards)
+      }
     };
-    return <section className="tcg-card-container">{cardRenderer()}</section>;
+    return <section className="tcg-card-container bg-info">{cardRenderer()}</section>;
   };
 
   defaultRender = () => {
@@ -201,16 +199,27 @@ export default class CardDictionary extends Component {
       </div>
     );
   };
+  //#endregion
+  changePage = pageIndex => {
+    console.log("Page Change: " + pageIndex);
+    fetch(`http://localhost:3000/cards/index/${pageIndex}`)
+      .then(resp => resp.json())
+      .then(json => {
+        console.log("FETCHING");
+        const cards = convertCardsFromSerializer(json.cards);
+        this.setState({
+          cards: cards
+        });
+      });
+  };
 
   render() {
     return (
       <>
-        <PrevNextWrapper
+        {this.renderCards()}
+        <Paginator
           pageCount={this.state.pageCount}
-          activeTab={this.state.activeTab}
-          links={this.state.links}
-          changePageHandler={this.changePage}
-          fillerComponent={this.renderCards}
+          handlePageChange={this.changePage}
         />
 
         <div className="bg-info">

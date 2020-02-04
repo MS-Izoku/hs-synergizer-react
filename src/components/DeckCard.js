@@ -17,8 +17,8 @@ class DeckCard extends Component {
   handleLike = () => {
     console.log("Liking Post (PlaceHolder)");
     const newCount = this.state.liked
-      ? --this.state.like_count
-      : ++this.state.like_count;
+      ? this.state.like_count - 1
+      : this.state.like_count + 1;
     this.setState({
       liked: !this.state.liked,
       like_count: newCount

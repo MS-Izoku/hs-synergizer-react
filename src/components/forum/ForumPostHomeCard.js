@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { createMarkup , icons} from "../../helperScripts";
+import { createMarkup , icons} from "../../services/helperScripts";
 import { MDBContainer, MDBCardHeader, MDBIcon, MDBMedia } from "mdbreact";
 
 class ForumPostHomeCard extends Component {

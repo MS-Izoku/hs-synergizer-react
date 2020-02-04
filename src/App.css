@@ -72,18 +72,23 @@ body {
 .tcg-card-container {
   display: flex;
   flex-wrap: wrap;
+  flex-flow: row;
+  overflow: scroll;
+  /* display: flex;
+  flex-wrap: wrap;
   flex-grow: 3;
   justify-content: center;
   margin: 0px;
-  -ms-flex-wrap: wrap;
+  -ms-flex-wrap: wrap; */
 }
 
 .tcg-card {
   display: flex;
   align-content: center;
   justify-content: center;
-  min-width: 20%;
+  max-width: 25%;
 }
+
 .tcg-card:hover {
   background: rgba(256, 256, 256, 0.25);
 }

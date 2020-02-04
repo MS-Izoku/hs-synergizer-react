@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { createMarkup } from "../..//helperScripts";
+import { createMarkup } from "../../services/helperScripts";
 import { MDBContainer, MDBCardHeader, MDBIcon, MDBMedia } from "mdbreact";
 
 import Comment from "../Comment";
