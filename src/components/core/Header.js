@@ -11,7 +11,7 @@ const Header = () => {
       <div className="nav-header-wrapper">
         <header className="nav-header">
           <div className="left link">
-            SIDEBAR <SideNav />
+            <SideNav />
           </div>
           <div className="nav-header logo">
             <img src={logo} id="site-logo" />

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif|Noto+Serif+TC&display=swap");
+
 #root {
   --hs-light-brown: #ddb225;
   --hs-medium-brown: #927f3f;
@@ -6,29 +8,40 @@
   --background: #202e80;
 
   --main-background-image: url("https://i.pinimg.com/originals/11/9c/dd/119cdd65ac4d32ca62abf0d4fb4559d3.jpg"); /* main background image, WIP */
-  --wood-img: url(""); /* custom wood background image, WIP */
-  --wood-border-img: url(""); /* Custom Border WIP */
+  --wood-img: url("https://mokatana.files.wordpress.com/2016/12/seamless-wood-texture-free-76.jpg"); /* custom wood background image, WIP */
+  --wood-border-img: url("https://mokatana.files.wordpress.com/2016/12/seamless-wood-texture-free-76.jpg"); /* Custom Border WIP */
 
   --mouseX: 0px;
   --mouseY: 0px;
   --header-move: 7vh;
+
+  --noto: "Noto Serif", serif;
+  --noto-tc: "Noto Serif TC", serif;
 }
 
+* {
+  /* font-family: var(--bebas-neue); */
+  font-family: var(--noto-tc);
+}
+
+h2 {
+  font-family: var(--noto-serif);
+}
 /*#region Base Components (ie: body) */
 body {
   display: flex;
   flex-direction: column;
 }
 
-#main-display{
+#main-display {
   overflow: scroll;
-  background:  var(--background);
+  background: var(--background);
   background-image: var(--main-background-image);
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
-.bottom-border{
+.bottom-border {
   border-bottom: 5px solid green;
   box-shadow: 0px 0px 30px black;
 }
@@ -39,7 +52,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 3;
-  border-bottom: 5px solid red;
+  border-bottom: 5px solid var(--hs-dark-brown);
   box-shadow: 0px 0px 30px black;
 }
 
@@ -117,7 +130,7 @@ body {
 
 #card-search-filter-nav section {
   border: 5px solid green;
-  background: red;
+  /* background: red; */
   flex: 1;
   display: flex;
   flex-flow: column;
@@ -251,7 +264,7 @@ body {
   flex-wrap: wrap;
 }
 
-.deck-card-container{
+.deck-card-container {
   display: flex;
   flex-flow: column;
   justify-items: center;
@@ -288,7 +301,7 @@ body {
   flex-direction: row;
 }
 
-.paginator .tabs.navs{
+.paginator .tabs.navs {
   width: 100%;
 }
 
@@ -299,12 +312,10 @@ body {
   justify-content: space-evenly;
 }
 
-
-.paginator .tabs a{
+.paginator .tabs a {
   display: flex;
   border: 1px solid white;
   width: 100%;
-
 }
 .paginator .tabs a .tab {
   background: blue;
@@ -315,15 +326,33 @@ body {
 }
 
 .paginator .tabs.numerical a .tab.active {
-  background: red;
+  /* background: red; */
 }
 /*#endregion */
 
-.landing-splash{
+.landing-splash {
   background: blue;
+  width: 100%;
+}
 
+.page-section {
   display: flex;
-  justify-items: center;
-  justify-self: center;
-  margin:auto;
+  flex-flow: column;
+}
+.section-header {
+  text-align: center;
+  margin: 2vh;
+}
+
+.section-header-wrapper{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  background: var(--hs-medium-brown);
+}
+
+
+.page-section{
+  /* background:red; */
 }

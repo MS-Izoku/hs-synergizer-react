@@ -12,7 +12,7 @@ render() {
     return (
       <Router>
           <div id="side-nav">
-              Wello
+              SIDE NAV
           </div>
       </Router>
     );

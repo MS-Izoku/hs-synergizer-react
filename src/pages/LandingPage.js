@@ -18,9 +18,12 @@ export default class LandingPage extends Component {
   }
   render() {
     return (
-      <section>
+      <section className="page-section">
         <LandingSplash/>
         <DeckCardContainer decks={this.state.decks} containerName="Hot Decks" />
+        <div className="bg-info bottom-border">
+          <h2>Hot off the Forums</h2>
+        </div>
       </section>
     );
   }
