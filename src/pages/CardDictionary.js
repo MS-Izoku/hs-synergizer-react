@@ -48,8 +48,8 @@ export default class CardDictionary extends Component {
     //       activeTab: json.page
     //     });
     //   });
-    console.log(cardData)
-    debugger;
+    const data = cardData.getData();
+    this.setState({cards: data.cards})
 
     //this.setState({cards: cardData.getCards().cardData})
   }

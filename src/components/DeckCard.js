@@ -27,7 +27,7 @@ class DeckCard extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="deck-card-container">
         <div className="deck-card px-2 py-2">
           <header>
             <h2>

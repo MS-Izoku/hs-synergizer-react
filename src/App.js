@@ -35,18 +35,17 @@ class App extends Component {
     return (
       <>
         <Header />
-        <main>
+        <div id="main-display">
           <Router>
             <Route exact path="/">
               <LandingPage />
             </Route>
             <Route path="/deck-builder">
-              <CardDictionary cards={this.state.cards}/>
+              <CardDictionary cards={this.state.cards} />
             </Route>
           </Router>
-        </main>
-
-        <Footer />
+          <Footer />
+        </div>
       </>
     );
   }

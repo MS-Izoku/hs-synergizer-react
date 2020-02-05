@@ -5,35 +5,42 @@
 
   --background: #202e80;
 
-  --main-background-image: url(""); /* main background image, WIP */
+  --main-background-image: url("https://i.pinimg.com/originals/11/9c/dd/119cdd65ac4d32ca62abf0d4fb4559d3.jpg"); /* main background image, WIP */
   --wood-img: url(""); /* custom wood background image, WIP */
   --wood-border-img: url(""); /* Custom Border WIP */
 
   --mouseX: 0px;
   --mouseY: 0px;
-  background-color: var(--background);
+  --header-move: 7vh;
 }
 
 /*#region Base Components (ie: body) */
 body {
-  background-color: #202e80;
-}
-/*#engregion */
-
-.flex {
   display: flex;
+  flex-direction: column;
 }
 
-.mouse-follow {
-  position: absolute;
-  left: var(--mouseX);
-  top: var(--mouseY);
+#main-display{
+  overflow: scroll;
+  background:  var(--background);
+  background-image: var(--main-background-image);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
+
+.bottom-border{
+  border-bottom: 5px solid green;
+  box-shadow: 0px 0px 30px black;
+}
+/*#endregion */
 
 .nav-header-wrapper {
   width: 100%;
-  position: fixed;
-  margin-bottom: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  border-bottom: 5px solid red;
+  box-shadow: 0px 0px 30px black;
 }
 
 .nav-header {
@@ -56,7 +63,7 @@ body {
 }
 
 #site-logo {
-  width: 10%;
+  width: 10vh;
 }
 
 #site-logo img {
@@ -178,6 +185,7 @@ body {
   flex-grow: 2;
   min-width: 20em;
   min-height: 5em;
+  box-shadow: 0px 10px 30px black;
 }
 @media screen and (min-width: 926px), (max-width: 600px) {
   .deck-card {
@@ -243,16 +251,21 @@ body {
   flex-wrap: wrap;
 }
 
+.deck-card-container{
+  display: flex;
+  flex-flow: column;
+  justify-items: center;
+}
+
 .upvote-container {
   background: var(--hs-medium-brown);
   border: 5px solid var(--hs-dark-brown);
-  flex-wrap: wrap;
+  display: flex;
   justify-content: center;
-  top: -10%;
-  left: 35%;
-  padding: 0.25em;
-  position: relative;
-  width: 32%;
+  margin-left: 33%;
+  margin-right: 33%;
+  transform: translateY(-2vh);
+  box-shadow: 0px 10px 30px black;
 }
 
 .side-nav {
@@ -305,3 +318,12 @@ body {
   background: red;
 }
 /*#endregion */
+
+.landing-splash{
+  background: blue;
+
+  display: flex;
+  justify-items: center;
+  justify-self: center;
+  margin:auto;
+}

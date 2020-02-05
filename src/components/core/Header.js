@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import SideNav from "./SideNav";
 
@@ -10,7 +10,9 @@ const Header = () => {
     <Router>
       <div className="nav-header-wrapper">
         <header className="nav-header">
-          <div className="left link">SIDEBAR</div>
+          <div className="left link">
+            SIDEBAR <SideNav />
+          </div>
           <div className="nav-header logo">
             <img src={logo} id="site-logo" />
           </div>
