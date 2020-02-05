@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import "./App.css";
 
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 //#region page imports
-import DeckBuilder from "./pages/DeckBuilder";
-import UserProfile from "./pages/UserProfile";
 import LandingPage from "./pages/LandingPage";
 import ForumHome from "./pages/ForumHome";
+import CardDictionary from "./pages/CardDictionary";
 //#endregion
 
-import { MDBContainer } from "mdbreact";
 import Footer from "./components/core/Footer";
 import Header from "./components/core/Header";
-import { getCards } from "./AsyncHandler";
 
-import Comment from "./components/Comment";
-import ForumPost from "./components/forum/ForumPost";
+import cardData from "./services/CardDataHandler";
 
 class App extends Component {
   constructor() {
@@ -25,31 +23,29 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/cards/wild")
-      .then(resp => resp.json())
-      .then(cards => {
-        const formattedData = cards.data.flat();
-        this.setState({ cards: formattedData });
-      });
+    const getCardData = cardData.createCardData();
+    this.setState({ cards: getCardData.data });
+  }
+
+  componentWillUnmount() {
+    cardData.clearData();
   }
 
   render() {
     return (
       <>
         <Header />
-        <main>
-          <LandingPage />
-          <ForumHome
-            threads={[
-              tempData.forumThreads[0],
-              tempData.forumThreads[1],
-              tempData.forumThreads[2],
-              tempData.forumThreads[3]
-            ]}
-          />
-        </main>
-
-        <Footer />
+        <div id="main-display">
+          <Router>
+            <Route exact path="/">
+              <LandingPage />
+            </Route>
+            <Route path="/deck-builder">
+              <CardDictionary cards={this.state.cards} />
+            </Route>
+          </Router>
+          <Footer />
+        </div>
       </>
     );
   }

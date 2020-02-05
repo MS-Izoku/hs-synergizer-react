@@ -4,62 +4,199 @@
   --hs-dark-brown: #6d5c25;
 
   --background: #202e80;
-  background-color: var(--background);
+
+  --main-background-image: url("https://i.pinimg.com/originals/11/9c/dd/119cdd65ac4d32ca62abf0d4fb4559d3.jpg"); /* main background image, WIP */
+  --wood-img: url(""); /* custom wood background image, WIP */
+  --wood-border-img: url(""); /* Custom Border WIP */
+
+  --mouseX: 0px;
+  --mouseY: 0px;
+  --header-move: 7vh;
 }
 
 /*#region Base Components (ie: body) */
 body {
-  background-color: #202e80;
-}
-/*#engregion */
-
-.flex {
   display: flex;
+  flex-direction: column;
+}
+
+#main-display{
+  overflow: scroll;
+  background:  var(--background);
+  background-image: var(--main-background-image);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.bottom-border{
+  border-bottom: 5px solid green;
+  box-shadow: 0px 0px 30px black;
+}
+/*#endregion */
+
+.nav-header-wrapper {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  border-bottom: 5px solid red;
+  box-shadow: 0px 0px 30px black;
 }
 
 .nav-header {
-  background-color: var(--hs-medium-brown);
-  padding-top: 200px;
   display: flex;
   justify-content: space-evenly;
+  background: var(--hs-medium-brown);
 }
 
-.nav-header-container {
-  padding-top: 5em;
+.nav-header div {
+  margin: auto;
+}
+
+.nav-header .link:hover {
+  font-weight: bold;
+  color: white;
+}
+.nav-header .link:active {
+  font-weight: bold;
+  color: grey;
 }
 
 #site-logo {
-  --offset: 45%;
-  display: inline-flex;
-  margin-left: var(--offset);
-  /* transform: translateX(var(--offset)); */
+  width: 10vh;
+}
 
+#site-logo img {
+  background: blue;
+  min-width: 20%;
 }
 
 .nav-footer {
   background: var(--hs-dark-brown);
 }
 
+/*#region TCG Cards */
+.tcg-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  overflow: scroll;
+  /* display: flex;
+  flex-wrap: wrap;
+  flex-grow: 3;
+  justify-content: center;
+  margin: 0px;
+  -ms-flex-wrap: wrap; */
+}
+
+.tcg-card {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  max-width: 25%;
+}
+
+.tcg-card:hover {
+  background: rgba(256, 256, 256, 0.25);
+}
+
+.tcg-card img {
+  image-rendering: optimizeSpeed;
+  width: 75%;
+}
+/*#endregion*/
+
+#card-search-filter-nav {
+  border: 5px solid yellow;
+  background: white;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  /* align-content: space-evenly; */
+}
+
+#card-search-filter-nav section {
+  border: 5px solid green;
+  background: red;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  flex-grow: 2;
+  padding: 1vh;
+}
+
+.main-filter-area {
+  background: yellow;
+}
+
+/*#region Card Dictionary*/
+.mana-tab-container {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-flow: row;
+}
+
+.mana-tab {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-content: center;
+  background: blue;
+  margin: 1%;
+}
+
+.mana-tab:hover {
+  background: yellow;
+}
+
+.mana-tab:active {
+  background: green;
+}
+
+.mana-tab.active {
+  background: white;
+}
+
+.mana-tab p {
+  margin: auto;
+}
+
+.paginator-tab {
+  background: white;
+  margin: 1vh;
+}
+
+.paginator-tab.active {
+  background: green;
+}
+/*#endregion */
+
+/*#endregion */
+
 /*#region Deck Cards */
-@media screen and (min-width: 926px), (max-width: 600px){
+
+.deck-card {
+  background: var(--hs-medium-brown);
+  border: 5px solid var(--hs-dark-brown);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-grow: 2;
+  min-width: 20em;
+  min-height: 5em;
+  box-shadow: 0px 10px 30px black;
+}
+@media screen and (min-width: 926px), (max-width: 600px) {
   .deck-card {
-    background: var(--hs-medium-brown);
-    border: 5px solid var(--hs-dark-brown);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    flex-grow: 2;
-    min-width: 20em;
-    min-height: 5em;
     width: 29em;
     border-radius: 0.5em;
   }
 }
 
-@media screen and (max-width: 925px){
-  .deck-card{
+@media screen and (max-width: 925px) {
+  .deck-card {
     /* background: var(--hs-medium-brown); */
-    background: blue;
     border: 5px solid var(--hs-dark-brown);
     display: flex;
     flex-direction: column;
@@ -92,14 +229,14 @@ body {
 }
 
 /*#region Side Nav */
-#side-nav-toggle{
+#side-nav-toggle {
   color: white;
 }
-#side-nav-toggle:hover{
+#side-nav-toggle:hover {
   color: black;
 }
 
-#side-nav-toggle:active{
+#side-nav-toggle:active {
   color: red;
   /* Make it spin here or something */
 }
@@ -114,19 +251,79 @@ body {
   flex-wrap: wrap;
 }
 
+.deck-card-container{
+  display: flex;
+  flex-flow: column;
+  justify-items: center;
+}
+
 .upvote-container {
   background: var(--hs-medium-brown);
   border: 5px solid var(--hs-dark-brown);
-  flex-wrap: wrap;
+  display: flex;
   justify-content: center;
-  top: -10%;
-  left: 35%;
-  padding: 0.25em;
-  position: relative;
-  width: 32%;
+  margin-left: 33%;
+  margin-right: 33%;
+  transform: translateY(-2vh);
+  box-shadow: 0px 10px 30px black;
 }
 
 .side-nav {
 }
 
 /*#endregion */
+
+/*#region Paginator for Card Dictionary */
+.paginator {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-wrapper {
+  display: flex;
+}
+
+.paginator .tabs {
+  display: flex;
+  flex-direction: row;
+}
+
+.paginator .tabs.navs{
+  width: 100%;
+}
+
+.paginator .tabs.numerical {
+  display: flex;
+  width: 100%;
+  overflow: scroll;
+  justify-content: space-evenly;
+}
+
+
+.paginator .tabs a{
+  display: flex;
+  border: 1px solid white;
+  width: 100%;
+
+}
+.paginator .tabs a .tab {
+  background: blue;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.paginator .tabs.numerical a .tab.active {
+  background: red;
+}
+/*#endregion */
+
+.landing-splash{
+  background: blue;
+
+  display: flex;
+  justify-items: center;
+  justify-self: center;
+  margin:auto;
+}

@@ -9,7 +9,7 @@ import {
   //   MDBPagination,
   //   MDBPageNav
 } from "mdbreact";
-import { createMarkup, icons } from "../helperScripts";
+import { createMarkup, icons } from "../services/helperScripts";
 
 class Comment extends Component {
   constructor() {
