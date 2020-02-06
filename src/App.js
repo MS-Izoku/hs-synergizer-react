@@ -6,13 +6,15 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 //#region page imports
 import LandingPage from "./pages/LandingPage";
 import ForumHome from "./pages/ForumHome";
-import CardDictionary from "./pages/CardDictionary";
+import CardDictionary from "./containers/CardDictionary";
+import DeckBuilder from './pages/DeckBuilder'
 //#endregion
 
 import Footer from "./components/core/Footer";
 import Header from "./components/core/Header";
 
 import cardData from "./services/CardDataHandler";
+import Paginator from "./components/Paginator";
 
 class App extends Component {
   constructor() {
@@ -41,8 +43,10 @@ class App extends Component {
               <LandingPage />
             </Route>
             <Route path="/deck-builder">
-              <CardDictionary cards={this.state.cards} />
+              {/* <CardDictionary cards={this.state.cards} /> */}
+              <DeckBuilder />
             </Route>
+
           </Router>
           <Footer />
         </div>

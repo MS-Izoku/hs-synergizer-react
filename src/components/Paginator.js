@@ -152,6 +152,21 @@ export default class Paginator extends Component {
     this.setState({ activeTab: tabNumber });
   };
 
+  componentDidMount(){
+    if(this.props.auto){
+      this.autoFlow()
+    }
+  }
+
+  autoFlow = (forwardPageMove) =>{
+    if(forwardPageMove){
+      
+    }
+    else{
+
+    }
+  }
+
   render() {
     return (
       <Router>

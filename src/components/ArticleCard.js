@@ -24,7 +24,7 @@ const ArticleCard = props => {
         const char = word.charAt(0).toUpperCase();
         return (char + word.slice(1)).toString() + " ";
       });
-    return words
+    return words;
   };
 
   return (
@@ -33,13 +33,11 @@ const ArticleCard = props => {
         (props.main ? "article-card main" : "article-card grid-element") +
         " drop-shadow"
       }
+      style={{
+        backgroundImage: `url(${props.article.img})`
+      }}
     >
-      <div
-        className="content-wrapper"
-        style={{
-          backgroundImage: `url(${props.article.img})`
-        }}
-      >
+      <div className="content-wrapper">
         <h2>
           {props.article.title
             ? toTitleCase(props.article.title)

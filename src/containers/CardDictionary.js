@@ -37,21 +37,8 @@ export default class CardDictionary extends Component {
 
   //#region lifecycle
   componentDidMount() {
-    // fetch("http://localhost:3000/cards/index/1")
-    //   .then(resp => resp.json())
-    //   .then(json => {
-    //     console.log("Fetching", json);
-    //     const cards = convertCardsFromSerializer(json.cards);
-    //     this.setState({
-    //       cards: cards,
-    //       pageCount: json.page_count,
-    //       activeTab: json.page
-    //     });
-    //   });
     const data = cardData.getData();
     this.setState({cards: data.cards})
-
-    //this.setState({cards: cardData.getCards().cardData})
   }
   //#endregion
 

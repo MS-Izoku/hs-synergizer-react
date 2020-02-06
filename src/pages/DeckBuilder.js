@@ -6,6 +6,8 @@ import React, { Component } from "react";
 //#region containers
 import DeckViewer from "../containers/DeckBuilder/DeckViewer";
 import TCGCardContainer from "../containers/TCGCardContainer";
+import Paginator from "../components/Paginator";
+
 //#endregion
 
 export default class DeckBuilder extends Component {
@@ -21,17 +23,17 @@ export default class DeckBuilder extends Component {
     };
   }
 
-  organizeCards = () =>{
-    return this.props.cards
-  }
+  organizeCards = () => {
+    return this.props.cards;
+  };
 
   render() {
     return (
-      <div className="user-profile">
-        Deck Viewer Page
-        {/* <DeckViewer cards={this.props.cards}/> */}
-        <TCGCardContainer cards={this.organizeCards()} />
-      </div>
+      <>
+        <section className="page-section">
+          <div className="bg-info"></div>
+        </section>
+      </>
     );
   }
 }

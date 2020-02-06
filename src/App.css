@@ -427,7 +427,7 @@ body {
   min-width: 100%;
 }
 
-#articles .wrapper {
+.wrapper {
   display: flex;
 }
 
@@ -461,7 +461,13 @@ body {
 }
 
 .article-card {
-  background: rgb(41, 40, 40);
+  background: rgb(141, 141, 141);
+  background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  -webkit-background-blend-mode: multiply;
+  background-position: 50% 50%;
   color: white;
   padding: 2%;
   display: flex;
@@ -470,8 +476,24 @@ body {
   margin: 0.5%;
   min-height: 250px;
   border-radius: 0.25em;
+
+  transition: all 0.7s ease;
 }
 
+.article-card:hover{
+  background-position: 100% 0%;
+  background-color: rgba(0, 0, 0, 0);
+
+}
+
+
+/**/
+
+
+
+.overlay-darken{
+  background: red;
+}
 
 .article-card.main {
   min-height: 100%;
