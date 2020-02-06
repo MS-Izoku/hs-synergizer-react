@@ -11,10 +11,10 @@ const DeckCardContainer = props => {
   return (
     <>
       <header className="section-header-wrapper">
-        <h2 className="section-header">
+        <h2 className="section-header hs-header">
           {props.containerName !== null
             ? props.containerName
-            : "Deck Card Container"}
+            : null}
         </h2>
       </header>
 
