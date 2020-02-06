@@ -45,7 +45,7 @@ body {
   background: var(--background);
   background-image: var(--main-background-image);
   background-repeat: repeat;
-  background-size: 100%;
+  background-size: 25%;
 }
 
 .bottom-border {
@@ -53,7 +53,11 @@ body {
   box-shadow: 0px 0px 30px black;
 }
 
-.drop-shadow{
+.top-border {
+  border-top: 5px solid var(--hs-dark-brown);
+}
+
+.drop-shadow {
   box-shadow: 0px 0px 30px black;
 }
 /*#endregion */
@@ -211,15 +215,15 @@ body {
   box-shadow: 0px 10px 30px black;
 }
 
-.deck-card h2{
+.deck-card h2 {
   color: white;
 }
 
-.deck-card h2::before{
+.deck-card h2::before {
   content: "⬲ ";
   color: var(--hs-light-brown);
 }
-.deck-card h2::after{
+.deck-card h2::after {
   content: " ⟴";
   color: var(--hs-light-brown);
 }
@@ -350,7 +354,6 @@ body {
 }
 
 .paginator .tabs.numerical a .tab.active {
-
 }
 /*#endregion */
 
@@ -372,7 +375,6 @@ body {
   height: 0.2em;
   border-radius: 20em;
 }
-
 
 .landing-splash h2 {
   font-family: Arial, Helvetica, sans-serif;
@@ -416,7 +418,7 @@ body {
   box-shadow: 0px 0px 10px black;
 }
 
-
+/*region #articles and components */
 #articles {
   --height: 100%;
   min-height: var(--height);
@@ -425,54 +427,93 @@ body {
   min-width: 100%;
 }
 
-#articles .wrapper{
+#articles .wrapper {
   display: flex;
 }
 
-#articles .article-area{
+#articles .article-area {
   width: 50%;
 }
 
-#articles .grid{
+#articles .grid {
   display: flex;
   flex-wrap: wrap;
 }
 
-.article-card{
+@media screen and (max-width: 400px) {
+  #articles {
+    display: flex;
+    flex-direction: column;
+  }
+  #articles .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #articles .article-area {
+    width: 100%;
+  }
+
+  #main-article {
+    height: 350px;
+    min-width: 100%;
+  }
+}
+
+.article-card {
   background: rgb(41, 40, 40);
   color: white;
-  padding: 1%;
+  padding: 2%;
   display: flex;
   flex-direction: column;
   justify-content: left;
   margin: 0.5%;
-
   min-height: 250px;
   border-radius: 0.25em;
 }
 
-.article-card.main{
+
+.article-card.main {
   min-height: 100%;
-  /* margin: auto; */
-  margin-top:auto;
+  margin-top: auto;
 }
 
-.article-card.grid-element{
-  min-width:49%;
+.article-card.grid-element {
+  min-width: 49%;
   width: 49%;
 }
 
-.article-card .content-wrapper{
-  margin-top:auto;
+.article-card .content-wrapper {
+  margin-top: auto;
 }
 
-.article-card .content-wrapper h2{
+.article-card .content-wrapper h2 {
   color: white;
   /* margin-top: auto; */
 }
 
-.article-card .content-wrapper p{
+.article-card .content-wrapper p {
   display: flex;
   justify-content: space-between;
   /* margin-top: auto; */
+}
+
+.article-card.grid-element h2{
+  font-size: 22px;
+}
+/*#endregion */
+
+#deck-builder-splash {
+  background: rgba(0, 0, 0, 0.74);
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+#deck-builder-splash div {
+  color: white;
+  display: flex;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  /* margin: auto; */
 }

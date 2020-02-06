@@ -38,8 +38,8 @@ export default class LandingPage extends Component {
           </div> */}
         </section>
         <section id="articles">
-          <header>
-            <h2 className="text-center">News</h2>
+          <header className="section-header-wrapper">
+            <h2 className="section-header hs-header">News</h2>
           </header>
           <div className="wrapper">
             <div id="main-article" className="article-area">
@@ -53,9 +53,9 @@ export default class LandingPage extends Component {
             </div>
           </div>
         </section>
-        <section id="deck-builder">
-          <div className="bg-info">
-            Deck Builder
+        <section id="deck-builder-splash" className="bottom-border top-border">
+          <div>
+            <p>VIDEO GOES HERE</p>
           </div>
         </section>
       </>
