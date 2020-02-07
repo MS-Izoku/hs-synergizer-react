@@ -430,6 +430,10 @@ body {
 .wrapper {
   display: flex;
 }
+.wrapper-col{
+  display: flex;
+  flex-direction: column;
+}
 
 #articles .article-area {
   width: 50%;
@@ -539,3 +543,35 @@ body {
   margin-bottom: 2.5%;
   /* margin: auto; */
 }
+
+
+.small-padding{
+  padding: 2.5%;
+}
+
+
+/*#region Deck Builder */
+#deck-builder{
+  display:flex;
+  justify-content: center;
+  background: red;
+}
+
+#deck-builder .wrapper{
+  width: 100%;
+  min-width: 100%;
+  justify-content: space-around;
+
+  /* flex-direction: column; */
+}
+
+#deck-builder .wrapper div{
+  width: 100%;
+}
+
+#deck-creator{
+  min-height: 50vh;
+  overflow: scroll;
+}
+
+/*#endregion */

@@ -170,7 +170,7 @@ export default class Paginator extends Component {
   render() {
     return (
       <Router>
-        <div className="paginator">
+        <div className={"paginator " + this.props.className} style={this.props.style}>
           <PaginatorBar
             tabCount={
               this.props.pageCount !== undefined ? this.props.pageCount : 20
