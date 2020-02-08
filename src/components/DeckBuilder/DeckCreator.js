@@ -68,7 +68,6 @@ export default class DeckCreator extends Component {
   };
 
   render() {
-    console.log("DeckContainer Update" , this.state, this.props)
     return (
       <div id="deck-creator" className="wrapper-col">
         <header>

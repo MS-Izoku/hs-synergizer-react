@@ -8,6 +8,7 @@ const cardData = {
     // check if the stuff exists in sessionstorage
     if (window.sessionStorage[tokenName] !== undefined) {
       const data = JSON.parse(window.sessionStorage[tokenName]);
+      console.log("Data Found!");
       if (data.cards[0].name === "ERROR") {
         // check if the first object is an error
         console.error("--Cards Cannot be Loaded, Trying Again---");
@@ -54,40 +55,44 @@ const parseSingleRawCardData = cardData => {
   };
 };
 
-const fetchData = fetch(cardIndexURL)
-  .then(resp => resp.json())
-  .then(json => {
-    const parsedCardData = json.data.map(card => parseSingleRawCardData(card));
-    const dataTarget = window.sessionStorage.setItem(
-      tokenName,
-      JSON.stringify({ cards: parsedCardData, perPage: 8 })
-    );
-    return dataTarget;
-  })
-  .catch(error => {
-    console.log("ERROR:", error);
-    debugger;
-    return JSON.stringify({
-      perPage: 8,
-      cards: [
-        {
-          name: "ERROR",
-          img: "",
-          attack: 0,
-          cardText: "Cards Cannot Load",
-          cardType: "",
-          cost: 0,
-          dbfId: 0,
-          durability: 0,
-          dustCost: 0,
-          elite: null,
-          flavorText: "Cards Cannot Load",
-          health: 0,
-          id: 0,
-          img: "",
-          imgGold: ""
-        }
-      ]
+const fetchData = () =>
+  fetch(cardIndexURL)
+    .then(resp => resp.json())
+    .then(json => {
+      console.log("FETCHING")
+      const parsedCardData = json.data.map(card =>
+        parseSingleRawCardData(card)
+      );
+      const dataTarget = window.sessionStorage.setItem(
+        tokenName,
+        JSON.stringify({ cards: parsedCardData, perPage: 8 })
+      );
+      return dataTarget;
+    })
+    .catch(error => {
+      console.log("ERROR:", error);
+      debugger;
+      return JSON.stringify({
+        perPage: 8,
+        cards: [
+          {
+            name: "ERROR",
+            img: "",
+            attack: 0,
+            cardText: "Cards Cannot Load",
+            cardType: "",
+            cost: 0,
+            dbfId: 0,
+            durability: 0,
+            dustCost: 0,
+            elite: null,
+            flavorText: "Cards Cannot Load",
+            health: 0,
+            id: 0,
+            img: "",
+            imgGold: ""
+          }
+        ]
+      });
     });
-  });
 export default cardData;

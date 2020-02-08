@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import ForumHome from "./pages/ForumHome";
 import CardDictionary from "./containers/CardDictionary";
-import DeckBuilder from './pages/DeckBuilder'
+import DeckBuilder from "./pages/DeckBuilder";
 //#endregion
 
 import Footer from "./components/core/Footer";
@@ -25,14 +25,19 @@ class App extends Component {
   }
 
   componentDidMount() {
+    window.addEventListener("unload", this.onUnload);
     const getCardData = cardData.createCardData();
     this.setState({ cards: getCardData.data });
   }
 
   componentWillUnmount() {
-    cardData.clearData();
+    window.removeEventListener("unload", this.onUnload);
   }
 
+  onUnload = event => {
+    event.preventDefault();
+    sessionStorage.clear();
+  };
 
   render() {
     return (
@@ -43,11 +48,9 @@ class App extends Component {
             <Route exact path="/">
               <LandingPage />
             </Route>
-            <Route path="/deck-builder">
-              {/* <CardDictionary cards={this.state.cards} /> */}
+            <Route path="/deck-builder" exact={false}>
               <DeckBuilder />
             </Route>
-
           </Router>
           <Footer />
         </div>
