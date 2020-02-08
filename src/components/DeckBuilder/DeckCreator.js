@@ -33,7 +33,6 @@ export default class DeckCreator extends Component {
   saveDeck = () => {};
 
   handleFormChange = event => {
-    console.log(event.target.name, this.state);
     event.preventDefault();
     this.setState({
       formState: {
@@ -69,24 +68,28 @@ export default class DeckCreator extends Component {
   };
 
   render() {
-    console.log(this.state.formState);
     return (
       <div id="deck-creator" className="wrapper-col">
-        {this.state.formState.nameActive ? (
-          <form onSubmit={this.handleNameChange}>
-            <input
-              type="text"
-              name="deckName"
-              onChange={this.handleFormChange}
-              value={this.state.formState.deckName}
-            />
-          </form>
-        ) : (
-          <h2 onClick={this.toggleNameInput}>
-            {this.state.formState.deckName}
-          </h2>
-        )}
-        <button onClick={this.saveDeck}>BUTTON</button>
+        <header>
+          {this.state.formState.nameActive ? (
+            <form onSubmit={this.handleNameChange}>
+              <input
+                type="text"
+                name="deckName"
+                onChange={this.handleFormChange}
+                value={this.state.formState.deckName}
+              />
+            </form>
+          ) : (
+            <h2 onClick={this.toggleNameInput}>
+              {this.state.formState.deckName}
+            </h2>
+          )}
+        </header>
+        <div>
+            {this.renderCards()}
+        </div>
+        <button onClick={this.saveDeck}>Save</button>
       </div>
     );
   }

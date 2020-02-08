@@ -121,7 +121,8 @@ body {
   display: flex;
   align-content: center;
   justify-content: center;
-  max-width: 25%;
+  max-width: 21%;
+  object-fit: contain;
 }
 
 .tcg-card:hover {
@@ -430,7 +431,7 @@ body {
 .wrapper {
   display: flex;
 }
-.wrapper-col{
+.wrapper-col {
   display: flex;
   flex-direction: column;
 }
@@ -484,18 +485,14 @@ body {
   transition: all 0.7s ease;
 }
 
-.article-card:hover{
+.article-card:hover {
   background-position: 100% 0%;
   background-color: rgba(0, 0, 0, 0);
-
 }
-
 
 /**/
 
-
-
-.overlay-darken{
+.overlay-darken {
   background: red;
 }
 
@@ -524,7 +521,7 @@ body {
   /* margin-top: auto; */
 }
 
-.article-card.grid-element h2{
+.article-card.grid-element h2 {
   font-size: 22px;
 }
 /*#endregion */
@@ -544,20 +541,32 @@ body {
   /* margin: auto; */
 }
 
-
-.small-padding{
+.small-padding {
   padding: 2.5%;
 }
 
-
 /*#region Deck Builder */
-#deck-builder{
-  display:flex;
-  justify-content: center;
-  background: red;
+
+#deck-creator {
+  display: flex;
 }
 
-#deck-builder .wrapper{
+/*#endregion */
+
+#card-viewer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#deck-builder {
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+#deck-builder .wrapper {
   width: 100%;
   min-width: 100%;
   justify-content: space-around;
@@ -565,13 +574,15 @@ body {
   /* flex-direction: column; */
 }
 
-#deck-builder .wrapper div{
+#deck-builder .wrapper div {
   width: 100%;
 }
 
-#deck-creator{
-  min-height: 50vh;
-  overflow: scroll;
+#deck-builder-main .small {
+  flex-basis: 20%;
 }
 
-/*#endregion */
+#deck-builder-main .large {
+  flex-basis: 80%;
+  flex-grow: 3;
+}

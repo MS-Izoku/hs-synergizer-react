@@ -203,12 +203,6 @@ export default class CardDictionary extends Component {
   render() {
     return (
       <>
-        {this.renderCards()}
-        <Paginator
-          pageCount={this.state.pageCount}
-          handlePageChange={this.changePage}
-        />
-
         <div className="bg-info">
           <form id="card-search-filter-nav" onSubmit={this.handleSubmit}>
             <section id="card-search-base-filters">

@@ -8,6 +8,8 @@ import DeckViewer from "../containers/DeckBuilder/DeckViewer";
 import TCGCardContainer from "../containers/TCGCardContainer";
 import Paginator from "../components/Paginator";
 import DeckCreator from "../components/DeckBuilder/DeckCreator";
+import CardViewer from "../components/CardViewer";
+import CardDictionary from "../containers/CardDictionary";
 
 //#endregion
 
@@ -24,23 +26,22 @@ export default class DeckBuilder extends Component {
     };
   }
 
-  organizeCards = () => {
-    return this.props.cards;
-  };
-
   render() {
     return (
       <>
-        <section className="page-section" id="deck-builder">
-          <header>
-            <h2>Deck Builder</h2>
-          </header>
-          <div className="wrapper bg-info">
-            <Paginator />
-            <div className="bg-warning" id="deck-viewer">
+        <section className="page-section bg-white" id="deck-builder">
+          <div id="deck-builder-main" className="wrapper">
+            <div className="wrapper-col large">
+              <CardViewer />
+              <Paginator className="" />
+            </div>
+            <div className="small" id="deck-viewer">
               <DeckCreator />
             </div>
           </div>
+          <footer>
+            <CardDictionary />
+          </footer>
         </section>
       </>
     );
