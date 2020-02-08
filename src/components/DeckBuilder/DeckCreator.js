@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 const DeckBuilderCard = props => {
   return (
-    <div className="deck-builder-card" onClick={props.removeCard}>
+    <div className="deck-builder-card card" onClick={props.handleCardClick}>
       <h2>{props.card.name ? props.card.name : "Card Name"}</h2>
     </div>
   );
@@ -43,8 +43,8 @@ export default class DeckCreator extends Component {
   };
 
   renderCards = () => {
-    this.state.cards.map(card => {
-      return <DeckBuilderCard card={card} removeCard={this.removeCard} />;
+    return this.props.cardsInDeck.map(card => {
+      return <DeckBuilderCard card={card} handleCardClick={this.props.handleCardClick} />;
     });
   };
 
@@ -68,6 +68,7 @@ export default class DeckCreator extends Component {
   };
 
   render() {
+    console.log("DeckContainer Update" , this.state, this.props)
     return (
       <div id="deck-creator" className="wrapper-col">
         <header>

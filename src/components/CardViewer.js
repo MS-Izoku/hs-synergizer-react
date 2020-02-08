@@ -15,7 +15,7 @@ export default class CardViewer extends Component {
   getSlice = pageNumber => {
     if (pageNumber <= 0) pageNumber = 1;
     if (pageNumber > cardData.pageCount) pageNumber = cardData.pageCount;
-    console.log(this.state.allCards.slice(0, 8))
+    console.log(this.state.allCards.slice(0, 8));
     return this.state.allCards.slice(0, 8);
   };
 
@@ -31,13 +31,15 @@ export default class CardViewer extends Component {
 
   renderCards = () => {
     return this.state.renderedCards.map(card => (
-      <TCGCard card={card} key={card.dbf_id} />
+      <TCGCard
+        card={card}
+        key={card.dbf_id}
+        handleClick={this.props.handleCardClick}
+      />
     ));
   };
 
   render() {
-    return (
-      <div id="card-viewer">{this.renderCards()}</div>
-    );
+    return <div id="card-viewer">{this.renderCards()}</div>;
   }
 }

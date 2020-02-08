@@ -5,45 +5,6 @@ const cardData = {
   // gets the card data and loads it into session storage,
   // if it is found then it returns it
   createCardData: () => {
-    const fetchData = fetch(cardIndexURL)
-      .then(resp => resp.json())
-      .then(json => {
-        const parsedCardData = json.data.map(card =>
-          parseSingleRawCardData(card)
-        );
-        const dataTarget = window.sessionStorage.setItem(
-          tokenName,
-          JSON.stringify({ cards: parsedCardData, perPage: 8 })
-        );
-        return dataTarget;
-      })
-      .catch(error => {
-        console.log("ERROR:", error);
-        debugger;
-        return JSON.stringify({
-          perPage: 8,
-          cards: [
-            {
-              name: "ERROR",
-              img: "",
-              attack: 0,
-              card_text: "Cards Cannot Load",
-              card_type: "",
-              cost: 0,
-              dbf_id: 0,
-              durability: 0,
-              dust_cost: 0,
-              elite: null,
-              flavor_text: "Cards Cannot Load",
-              health: 0,
-              id: 0,
-              img: "",
-              img_gold: ""
-            }
-          ]
-        });
-      });
-
     // check if the stuff exists in sessionstorage
     if (window.sessionStorage[tokenName] !== undefined) {
       const data = JSON.parse(window.sessionStorage[tokenName]);
@@ -78,19 +39,55 @@ const parseSingleRawCardData = cardData => {
     name: cardData.attributes.name,
     img: cardData.attributes.img,
     attack: cardData.attributes.attack,
-    card_text: cardData.attributes.card_text,
-    card_type: cardData.attributes.card_type,
+    cardText: cardData.attributes.card_text,
+    cardType: cardData.attributes.card_type,
     cost: cardData.attributes.cost,
-    dbf_id: cardData.attributes.dbf_id,
+    dbfId: cardData.attributes.dbf_id,
     durability: cardData.attributes.durability,
-    dust_cost: cardData.attributes.dust_cost,
+    dustCost: cardData.attributes.dust_cost,
     elite: cardData.attributes.elite,
-    flavor_text: cardData.attributes.flavor_text,
+    flavorText: cardData.attributes.flavor_text,
     health: cardData.attributes.health,
     id: cardData.attributes.id,
     img: cardData.attributes.img,
-    img_gold: cardData.attributes.img_gold
+    imgGold: cardData.attributes.img_gold
   };
 };
 
+const fetchData = fetch(cardIndexURL)
+  .then(resp => resp.json())
+  .then(json => {
+    const parsedCardData = json.data.map(card => parseSingleRawCardData(card));
+    const dataTarget = window.sessionStorage.setItem(
+      tokenName,
+      JSON.stringify({ cards: parsedCardData, perPage: 8 })
+    );
+    return dataTarget;
+  })
+  .catch(error => {
+    console.log("ERROR:", error);
+    debugger;
+    return JSON.stringify({
+      perPage: 8,
+      cards: [
+        {
+          name: "ERROR",
+          img: "",
+          attack: 0,
+          cardText: "Cards Cannot Load",
+          cardType: "",
+          cost: 0,
+          dbfId: 0,
+          durability: 0,
+          dustCost: 0,
+          elite: null,
+          flavorText: "Cards Cannot Load",
+          health: 0,
+          id: 0,
+          img: "",
+          imgGold: ""
+        }
+      ]
+    });
+  });
 export default cardData;

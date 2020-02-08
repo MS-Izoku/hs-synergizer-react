@@ -33,6 +33,7 @@ class App extends Component {
     cardData.clearData();
   }
 
+
   render() {
     return (
       <>

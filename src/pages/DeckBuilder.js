@@ -17,30 +17,40 @@ export default class DeckBuilder extends Component {
   constructor() {
     super();
     this.state = {
-      name: "Unnamed Deck",
-      deckClass: {
-        // populate this with the card class data
-        name: "Vanilla"
-      },
-      searchCriteria: "none"
+      deckCards: []
     };
   }
 
+  removeCard = cardData => {
+    this.setState({
+      deckCards: this.state.deckCards.filter(card => {
+        return card !== cardData;
+      })
+    });
+  };
+
+  addCard = cardData => {
+    const sortedCards = [...this.state.deckCards, cardData];
+    
+    this.setState({ deckCards: sortedCards });
+  };
+
   render() {
+    console.log(this.state)
     return (
       <>
         <section className="page-section bg-white" id="deck-builder">
           <div id="deck-builder-main" className="wrapper">
             <div className="wrapper-col large">
-              <CardViewer />
+              <CardViewer handleCardClick={this.addCard}/>
               <Paginator className="" />
             </div>
             <div className="small" id="deck-viewer">
-              <DeckCreator />
+              <DeckCreator handleCardClick={this.removeCard} cardsInDeck={this.state.deckCards}/>
             </div>
           </div>
           <footer>
-            <CardDictionary />
+            <CardDictionary/>
           </footer>
         </section>
       </>
