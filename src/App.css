@@ -40,6 +40,18 @@ body {
   flex-direction: column;
 }
 
+#main-display-wrapper{
+  min-width: 100%;
+  width: 100%;
+}
+
+#side-nav {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+}
+
 #main-display {
   overflow: scroll;
   background: var(--background);
@@ -312,9 +324,6 @@ body {
   margin-right: 33%;
   transform: translateY(-2vh);
   box-shadow: 0px 10px 30px black;
-}
-
-.side-nav {
 }
 
 /*#endregion */

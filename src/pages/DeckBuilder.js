@@ -32,28 +32,27 @@ export default class DeckBuilder extends Component {
 
   addCard = cardData => {
     const sortedCards = [...this.state.deckCards, cardData];
-
     this.setState({ deckCards: sortedCards });
   };
 
   render() {
     return (
       <>
-        <section className="page-section bg-white" id="deck-builder">
+        <section className="page-section" id="deck-builder">
           <div id="deck-builder-main" className="wrapper">
             <div className="wrapper-col large">
               {/* <CardViewer handleCardClick={this.addCard} /> */}
               <Paginator className="" />
             </div>
             <div className="small" id="deck-viewer">
-              <DeckCreator
+              {/* <DeckCreator
                 handleCardClick={this.removeCard}
                 cardsInDeck={this.state.deckCards}
-              />
+              /> */}
             </div>
           </div>
           <footer>
-            <CardDictionary />
+            {/* <CardDictionary /> */}
           </footer>
         </section>
       </>

@@ -12,15 +12,18 @@ import DeckBuilder from "./pages/DeckBuilder";
 
 import Footer from "./components/core/Footer";
 import Header from "./components/core/Header";
+import SideNavBar from "./components/core/SideNavBar";
 
 import cardData from "./services/CardDataHandler";
 import Paginator from "./components/Paginator";
+import Credits from "./pages/Credits";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      cards: []
+      cards: [],
+      sideBarCollapsed: false
     };
   }
 
@@ -39,20 +42,26 @@ class App extends Component {
     sessionStorage.clear();
   };
 
+  handleNavToggle = () => {
+    this.setState({ sideBarCollapsed: !this.state.sideBarCollapsed });
+  };
+
   render() {
     return (
       <>
-        <Header />
-        <div id="main-display">
-          <Router>
+        <Header handleNavToggle={this.handleNavToggle} />
+        <SideNavBar collapsed={this.state.sideBarCollapsed} />
+        <div id="main-display-wrapper">
+          <div id="main-display">
             <Route exact path="/">
               <LandingPage />
             </Route>
             <Route path="/deck-builder" exact={false}>
               <DeckBuilder />
             </Route>
-          </Router>
-          <Footer />
+            <Route exact path="/credits" component={Credits} />
+            <Footer />
+          </div>
         </div>
       </>
     );
