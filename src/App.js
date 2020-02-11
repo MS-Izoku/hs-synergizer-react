@@ -23,7 +23,7 @@ class App extends Component {
     super();
     this.state = {
       cards: [],
-      sideBarCollapsed: false
+      sideBarCollapsed: true
     };
   }
 
