@@ -50,7 +50,7 @@ class App extends Component {
     return (
       <>
         <Header handleNavToggle={this.handleNavToggle} />
-        <SideNavBar collapsed={this.state.sideBarCollapsed} />
+        <SideNavBar handleNavToggle={this.handleNavToggle} collapsed={this.state.sideBarCollapsed} />
         <div id="main-display-wrapper">
           <div id="main-display">
             <Route exact path="/">

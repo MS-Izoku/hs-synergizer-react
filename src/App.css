@@ -47,10 +47,12 @@ body {
 
 #side-nav {
   width: 100%;
+  min-width: 100%;
   position: fixed;
+  display: flex;
   top: 10%;
   z-index: 3;
-  display: flex;
+  flex-grow: 1;
   height: 100%;
   min-height: 100%;
   background: rgba(0 , 0 , 0 , 0);
@@ -67,7 +69,7 @@ body {
 }
 
 #side-nav .wrapper{
-  background: white;
+  background: var(--hs-medium-brown);
   display: flex;
   flex-direction: column;
   width: 20%;
@@ -80,7 +82,13 @@ body {
 
 #side-nav .wrapper.inactive{
   transform: translateX(-100%);
-  transition: transform 0.5s;
+  transition: transform 0.25s;
+}
+
+#side-nav .filler{
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 #side-nav.hidden {
@@ -89,6 +97,28 @@ body {
   height: 100%;
   flex-direction: column;
   z-index: 4;
+}
+
+#side-nav a{
+  color: white;
+}
+
+#side-nav ul{
+list-style:none;
+list-style-position: inside;
+margin-right: 5%;
+}
+
+#side-nav li{
+  margin: auto;
+
+  padding: 5%;
+  border-radius: 0.25em;
+}
+
+#side-nav li:hover{
+  background: red;
+
 }
 
 #main-display {

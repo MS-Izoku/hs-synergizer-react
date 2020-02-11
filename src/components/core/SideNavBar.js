@@ -3,17 +3,22 @@ import { withRouter } from "react-router";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 
 class SideNavBar extends Component {
+  checkCollapse = () => {
+    if (this.props.collapsed === false) this.props.handleNavToggle();
+  };
+
   render() {
     return (
       <Router>
         <div
           id="side-nav"
-          className={
-            (this.props.collapsed === true ? "  " : " ") +
-            (this.props.collapsed ? "inactive" : "active")
-          }
+          className={this.props.collapsed ? "inactive" : "active"}
         >
-          <div className={"wrapper " + (this.props.collapsed ? "inactive" : "active")}>
+          <div
+            className={
+              "wrapper " + (this.props.collapsed ? "inactive" : "active")
+            }
+          >
             <header>SideNav</header>
 
             <ul>
@@ -69,6 +74,7 @@ class SideNavBar extends Component {
               </li>
             </ul>
           </div>
+          {!this.props.collapsed ? <div className="filler" onClick={this.props.handleNavToggle}/> : null}
         </div>
       </Router>
     );
