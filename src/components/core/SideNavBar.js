@@ -13,7 +13,7 @@ class SideNavBar extends Component {
             (this.props.collapsed ? "inactive" : "active")
           }
         >
-          <div className="wrapper">
+          <div className={"wrapper " + (this.props.collapsed ? "inactive" : "active")}>
             <header>SideNav</header>
 
             <ul>

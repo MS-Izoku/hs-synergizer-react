@@ -73,6 +73,16 @@ body {
   width: 20%;
 }
 
+#side-nav .wrapper.active{
+  transform: translateX(0%);
+  transition: transform 0.5s;
+}
+
+#side-nav .wrapper.inactive{
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+
 #side-nav.hidden {
   position: sticky;
   display: none;
