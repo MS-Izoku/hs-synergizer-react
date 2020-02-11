@@ -64,6 +64,7 @@ body {
 }
 
 #side-nav.inactive{
+  pointer-events: none;
   background: rgba(0 , 0 , 0 , 0);
   transition: background 0.5s;
 }
@@ -73,16 +74,20 @@ body {
   display: flex;
   flex-direction: column;
   width: 20%;
+  border-right: 5px solid var(--hs-dark-brown);
 }
 
 #side-nav .wrapper.active{
+  box-shadow: 20px 5px 10px rgba(0, 0, 0, 0.397);
   transform: translateX(0%);
-  transition: transform 0.5s;
+  transition: transform 0.5s , box-shadow 0.25s;
 }
 
 #side-nav .wrapper.inactive{
+  box-shadow: none;
   transform: translateX(-100%);
   transition: transform 0.25s;
+  z-index: -1;
 }
 
 #side-nav .filler{

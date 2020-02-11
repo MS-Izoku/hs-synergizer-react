@@ -19,7 +19,6 @@ class SideNavBar extends Component {
               "wrapper " + (this.props.collapsed ? "inactive" : "active")
             }
           >
-            <header>SideNav</header>
 
             <ul>
               <li>
@@ -74,7 +73,7 @@ class SideNavBar extends Component {
               </li>
             </ul>
           </div>
-          {!this.props.collapsed ? <div className="filler" onClick={this.props.handleNavToggle}/> : null}
+         <div className="filler" onClick={this.props.handleNavToggle}/>
         </div>
       </Router>
     );
