@@ -106,6 +106,7 @@ body {
 
 #side-nav a{
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #side-nav ul{
@@ -116,14 +117,16 @@ margin-right: 5%;
 
 #side-nav li{
   margin: auto;
+  background-size: 0% 0%;
 
   padding: 5%;
   border-radius: 0.25em;
+  transition: background 0.1s;
 }
 
 #side-nav li:hover{
-  background: red;
-
+  background: rgba(39, 17, 3, 0.5);
+  transition: background 0.5s;
 }
 
 #main-display {
@@ -132,6 +135,26 @@ margin-right: 5%;
   background-image: var(--main-background-image);
   background-repeat: repeat;
   background-size: 25%;
+}
+
+.spinner{
+  transform: rotate(0deg);
+  color: white;
+
+  padding: 10% 20%;
+  border-radius: 0.1em;
+  transition: transform 0.5s, background 0.5s;
+}
+
+.spinner:hover{
+  background: rgba(24, 12, 4, 0.733);
+  transform: rotate(180deg);
+  transition: transform 0.5s, background 1s;
+}
+
+.spinner:active{
+  transform: rotate(0deg);
+  transition: transform 0.5s;
 }
 
 .bottom-border {

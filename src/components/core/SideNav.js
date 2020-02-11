@@ -11,7 +11,7 @@ class SideNav extends Component {
   render() {
     return (
       <div id="side-nav-button" onClick={this.handleNavToggle}>
-        <MDBIcon icon="user-circle" size="3x" />
+        <MDBIcon icon="bars" className="spinner" size="3x"/>
       </div>
     );
   }
