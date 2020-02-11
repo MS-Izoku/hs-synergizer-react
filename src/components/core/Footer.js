@@ -18,10 +18,10 @@ const Footer = () => {
               <h5 className="title">Links</h5>
               <ul>
                 <li className="list-unstyled">
-                  <a href="#!">Link 1</a>
+                  <a href="https://playhearthstone.com/en-us/">Hearthstone Official</a>
                 </li>
                 <li className="list-unstyled">
-                  <a href="#!">Link 2</a>
+                  <a href="https://hearthstoneapi.com/">Hearthstone API</a>
                 </li>
                 <li className="list-unstyled">
                   <a href="#!">Link 3</a>
@@ -35,7 +35,7 @@ const Footer = () => {
         </MDBContainer>
         <div className="footer-copyright text-center py-3">
           <MDBContainer fluid>
-            &copy; {new Date().getFullYear()} Copyright: Martin Spicuzza
+            &copy; {new Date().getFullYear()} Copyright: Martin Spicuzza and Blizzard Entertainment
           </MDBContainer>
         </div>
       </MDBFooter>

@@ -12,8 +12,9 @@ class TCGCard extends Component {
 
 
   handleClick = () => {
-    console.log("Do something Cool");
-    if (this.props.handleClick !== undefined) this.props.handleClick();
+    // pass up the card data if necessary
+    if (this.props.handleClick !== undefined) this.props.handleClick(this.props.card);
+    else console.log("Card Click! (no handler prop found)")
   };
 
   render() {

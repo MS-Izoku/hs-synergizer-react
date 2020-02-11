@@ -1,20 +1,18 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBSideNavLink, MDBContainer, MDBIcon, MDBBtn } from "mdbreact";
+import { MDBIcon } from "mdbreact";
+import { Link, BrowserRouter as Router } from "react-router-dom";
+import {withRouter} from 'react-router'
 
 class SideNav extends Component {
-  state = {
-    collapsed: true
-  }
+  handleNavToggle = () => {
+    this.props.handleNavToggle();
+  };
 
-
-render() {
+  render() {
     return (
-      <Router>
-          <div id="side-nav">
-              Wello
-          </div>
-      </Router>
+      <div id="side-nav-button" onClick={this.handleNavToggle}>
+        <MDBIcon icon="bars" className="spinner" size="3x"/>
+      </div>
     );
   }
 }

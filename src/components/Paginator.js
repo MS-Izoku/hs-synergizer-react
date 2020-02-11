@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { range } from "lodash";
 import { Link, BrowserRouter as Router } from "react-router-dom";
+import {withRouter } from 'react-router'
 
 class PaginatorTab extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       isActive: false,
       cannotBeClicked: false
@@ -37,8 +38,9 @@ class PaginatorTab extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
-      <Link to={"/page/" + this.generateTabTextValue()}>
+      <Link to={this.props.path + "/page/" + this.generateTabTextValue()}>
         <div className={"tab " + this.style()} onClick={this.clickHandler}>
           {this.props.tabText}
         </div>
@@ -82,6 +84,7 @@ class PaginatorBar extends Component {
         setActiveTab={this.props.setActiveTab}
         activeTab={this.props.activeTab}
         setActiveTab={this.props.setActiveTab}
+        path={this.props.path}
       />
     ));
 
@@ -136,7 +139,7 @@ class PaginatorBar extends Component {
   }
 }
 
-export default class Paginator extends Component {
+class Paginator extends Component {
   constructor() {
     super();
     this.state = {
@@ -152,11 +155,28 @@ export default class Paginator extends Component {
     this.setState({ activeTab: tabNumber });
   };
 
+  componentDidMount(){
+    if(this.props.auto){
+      this.autoFlow()
+    }
+  }
+
+  autoFlow = (forwardPageMove) =>{
+    if(forwardPageMove){
+      
+    }
+    else{
+
+    }
+  }
+
   render() {
+    console.log(this.props , "ALLO")
     return (
       <Router>
-        <div className="paginator">
+        <div className={"paginator " + this.props.className} style={this.props.style}>
           <PaginatorBar
+            path={this.props.match.path}
             tabCount={
               this.props.pageCount !== undefined ? this.props.pageCount : 20
             }
@@ -169,6 +189,8 @@ export default class Paginator extends Component {
     );
   }
 }
+
+export default withRouter(Paginator)
 
 /*
 Usage Notes:

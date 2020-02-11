@@ -10,11 +10,11 @@ const DeckCardContainer = props => {
 
   return (
     <>
-      <header className="bg-primary">
-        <h2 className="text-center">
+      <header className="section-header-wrapper">
+        <h2 className="section-header hs-header">
           {props.containerName !== null
             ? props.containerName
-            : "Deck Card Container"}
+            : null}
         </h2>
       </header>
 
