@@ -17,6 +17,7 @@ import SideNavBar from "./components/core/SideNavBar";
 import cardData from "./services/CardDataHandler";
 import Paginator from "./components/Paginator";
 import Credits from "./pages/Credits";
+import Error404Page from './pages/Error404Page'
 
 class App extends Component {
   constructor() {
@@ -50,7 +51,10 @@ class App extends Component {
     return (
       <>
         <Header handleNavToggle={this.handleNavToggle} />
-        <SideNavBar handleNavToggle={this.handleNavToggle} collapsed={this.state.sideBarCollapsed} />
+        <SideNavBar
+          handleNavToggle={this.handleNavToggle}
+          collapsed={this.state.sideBarCollapsed}
+        />
         <div id="main-display-wrapper">
           <div id="main-display">
             <Route exact path="/">
@@ -63,6 +67,9 @@ class App extends Component {
               <ForumHome />
             </Route>
             <Route exact path="/credits" component={Credits} />
+            <Route path="/">
+              <Error404Page />
+            </Route>
             <Footer />
           </div>
         </div>

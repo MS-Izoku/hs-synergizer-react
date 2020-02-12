@@ -4,12 +4,14 @@ import ForumPostHomeCard from "../components/forum/ForumPostHomeCard";
 
 import ForumThread from "../containers/forum/ForumThread";
 import ForumPostForm from "../containers/forum/ForumPostForm";
+import Paginator from "../components/Paginator";
 
 class ForumHome extends Component {
   constructor() {
     super();
     this.state = {
       page: 0,
+      pageCount: 0,
       threads: [
         {
           title: "Loading",
@@ -78,15 +80,16 @@ class ForumHome extends Component {
 
   render() {
     return (
-      <div className="mx-2">
+      <section className="page-section">
         <header className="container bg-info my-2">
           <h2 className="row">
             <span className="col text-center">Hot off the Forums</span>
           </h2>
         </header>
-        <div>{this.renderThreads()}</div>
+        <div className="mx-2 px-5">{this.renderThreads()}
+        <Paginator className="my-5" handlePageChange={this.changePage} pageCount={this.state.pageCount} /></div>
         <ForumPostForm />
-      </div>
+      </section>
     );
   }
 }
