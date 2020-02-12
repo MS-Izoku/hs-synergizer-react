@@ -79,6 +79,13 @@ body {
   border-right: 5px solid var(--hs-dark-brown);
 }
 
+
+@media screen and (max-width: 600px){
+  #side-nav .wrapper{
+    width: 100%; 
+  }
+}
+
 #side-nav .wrapper.active {
   box-shadow: 20px 5px 10px rgba(0, 0, 0, 0.397);
   transform: translateX(0%);
