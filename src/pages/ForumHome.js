@@ -1,25 +1,81 @@
 import React, { Component } from "react";
-import ForumPost from "../components/forum/ForumPost";
+import ForumPostHeader from "../components/forum/ForumPostHeader";
 import ForumPostHomeCard from "../components/forum/ForumPostHomeCard";
 
 import ForumThread from "../containers/forum/ForumThread";
+import ForumPostForm from "../containers/forum/ForumPostForm";
 
 class ForumHome extends Component {
   constructor() {
     super();
     this.state = {
-      posts: []
+      page: 0,
+      threads: [
+        {
+          title: "Loading",
+          body: "Loading",
+          user: {
+            username: "Vilhelm",
+            avatar: "#",
+            tagLine: "I am a jelly donut"
+          }
+        },
+        {
+          title: "Loading",
+          body: "Loading",
+          user: {
+            username: "Vilhelm",
+            avatar: "#",
+            tagLine: "I am a jelly donut"
+          }
+        },
+        {
+          title: "Loading",
+          body: "Loading",
+          user: {
+            username: "Vilhelm",
+            avatar: "#",
+            tagLine: "I am a jelly donut"
+          }
+        },
+        {
+          title: "Loading",
+          body: "Loading",
+          user: {
+            username: "Vilhelm",
+            avatar: "#",
+            tagLine: "I am a jelly donut"
+          }
+        },
+        {
+          title: "Loading",
+          body: "Loading",
+          user: {
+            username: "Vilhelm",
+            avatar: "#",
+            tagLine: "I am a jelly donut"
+          }
+        },
+        {
+          title: "Loading",
+          body: "Loading",
+          user: {
+            username: "Vilhelm",
+            avatar: "#",
+            tagLine: "I am a jelly donut"
+          }
+        },
+      ],
     };
   }
-  renderPosts = () => {
-    return this.props.posts.map(post => <ForumPostHomeCard post={post} />);
-  };
 
-  renderThreads = () => {
-    return this.props.threads.map(thread => {
-      return <ForumPostHomeCard thread={thread} />;
+  changePage = () => {};
+
+  renderThreads = () =>
+    this.state.threads.map(thread => {
+      return <ForumPostHeader post={thread} />;
     });
-  };
+
   render() {
     return (
       <div className="mx-2">
@@ -28,7 +84,8 @@ class ForumHome extends Component {
             <span className="col text-center">Hot off the Forums</span>
           </h2>
         </header>
-        {this.renderThreads()}
+        <div>{this.renderThreads()}</div>
+        <ForumPostForm />
       </div>
     );
   }

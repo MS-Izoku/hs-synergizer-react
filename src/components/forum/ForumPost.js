@@ -11,6 +11,7 @@ class ForumPost extends Component {
     this.state = {
       inEditor: false,
       body: "<p>Body Text of a Forum Post</p>",
+      user: { username: "Vilhelm" },
       comments: [tempData.comment]
     };
   }
@@ -20,31 +21,25 @@ class ForumPost extends Component {
   };
 
   renderPostHTML = () => {
-    return <div dangerouslySetInnerHTML={createMarkup(this.state.body)} />;
+    return <div dangerouslySetInnerHTML={createMarkup(this.props.post.body)} />;
   };
 
   render() {
     return (
-      <MDBContainer className="card my-1">
-        <MDBCardHeader className="border-0 font-weight-bold d-flex justify-content-between">
-          Header Area
-          <ul className="list-unstyled list-inline mb-0">
-            <li className="list-inline-item mr-3">
-              <MDBIcon className="mr-2" icon="user" />
-              {/* Replace this with the Upvote Img */}
-              {this.props.post.upvotes}
-            </li>
-          </ul>
-        </MDBCardHeader>
-        <MDBMedia className="p-4 bg-white">
-          <MDBMedia body>
-            {this.renderPostHTML()}
-            <div className="container">
-                {this.renderComments()}
-            </div>
-          </MDBMedia>
-        </MDBMedia>
-      </MDBContainer>
+      <div className="bg-white card">
+        <div>
+          <img src={this.props.post.user.avatar} alt={"user-avatar"} />
+          <h2>{this.props.post.user.username}</h2>
+        </div>
+        <div className="bg-info">
+          <header>
+            <h2>{this.props.post.title}</h2>
+          </header>
+          <div className="">{this.renderPostHTML()}</div>
+          <hr />
+          <div className="">{this.props.post.user.tagLine}</div>
+        </div>
+      </div>
     );
   }
 }
