@@ -5,7 +5,8 @@ export default class ForumPostForm extends Component {
     super();
     this.state = {
       postTitle: "",
-      postBody: ""
+      postBody: "",
+      error: ""
     };
   }
 
@@ -15,7 +16,19 @@ export default class ForumPostForm extends Component {
 
   handlesSubmit = event => {
     event.preventDefault();
-    console.log(this.state)
+    if (this.state.postTitle.length > 255) {
+      this.setState({ error: "Title must be less than 255 characters long" });
+      return;
+    } else if (this.state.postTitle.length < 1) {
+      this.setState({ error: "You need a title" });
+      return;
+    }
+    if (this.state.postBody === "") {
+      this.setState({ error: "Your post body is empty" });
+      return;
+    }
+
+    console.log("Post to DB here and update state");
   };
 
   render() {
@@ -24,6 +37,7 @@ export default class ForumPostForm extends Component {
         <form onSubmit={this.handlesSubmit}>
           <input
             name="postTitle"
+            className="title"
             onChange={this.handleChange}
             value={this.state.postTitle}
             placeholder="Title..."
@@ -36,6 +50,13 @@ export default class ForumPostForm extends Component {
           />
           <button type="submit">POST</button>
         </form>
+        <div
+          className={
+            this.state.error !== "" ? "error-handler" : this.state.error
+          }
+        >
+          <p>{this.state.error}</p>
+        </div>
       </div>
     );
   }
