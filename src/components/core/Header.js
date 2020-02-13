@@ -13,7 +13,7 @@ const Header = (props) => {
           <SideNav handleNavToggle={props.handleNavToggle}/>
 
           <div className="nav-header logo">
-            <img src={logo} id="site-logo" />
+            <img src={logo} id="site-logo" alt="logo"/>
           </div>
           <UserNav />
         </header>

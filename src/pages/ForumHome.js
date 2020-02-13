@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ForumPostHeader from "../components/forum/ForumPostHeader";
-import ForumPostHomeCard from "../components/forum/ForumPostHomeCard";
+//import ForumPostHomeCard from "../components/forum/ForumPostHomeCard";
 
-import ForumThread from "../containers/forum/ForumThread";
+//import ForumThread from "../containers/forum/ForumThread";
 import ForumPostForm from "../containers/forum/ForumPostForm";
 import Paginator from "../components/Paginator";
 
