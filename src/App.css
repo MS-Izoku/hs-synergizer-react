@@ -79,13 +79,6 @@ body {
   border-right: 5px solid var(--hs-dark-brown);
 }
 
-
-@media screen and (max-width: 600px){
-  #side-nav .wrapper{
-    width: 100%; 
-  }
-}
-
 #side-nav .wrapper.active {
   box-shadow: 20px 5px 10px rgba(0, 0, 0, 0.397);
   transform: translateX(0%);
@@ -97,6 +90,15 @@ body {
   transform: translateX(-100%);
   transition: transform 0.25s;
   z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
+  #side-nav .wrapper {
+    width: 100%;
+  }
+  #side-nav .wrapper.active {
+    width: 100%;
+  }
 }
 
 #side-nav .filler {
@@ -667,12 +669,9 @@ body {
 }
 
 /*#region Deck Builder */
-
 #deck-creator {
   display: flex;
 }
-
-/*#endregion */
 
 #card-viewer {
   display: flex;
@@ -691,8 +690,6 @@ body {
   width: 100%;
   min-width: 100%;
   justify-content: space-around;
-
-  /* flex-direction: column; */
 }
 
 #deck-builder .wrapper div {
@@ -707,7 +704,16 @@ body {
   flex-basis: 80%;
   flex-grow: 3;
 }
+/*#endregion */
 
+.loading-wrapper {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: inherit;
+  mix-blend-mode: multiply; 
+}
+
+/*#region Forum Post Header */
 .forum-post-header {
   background: var(--hs-medium-brown);
   border: 3px solid;
@@ -718,6 +724,12 @@ body {
   margin-top: var(--margin);
   margin-block: var(--margin);
 }
+
+/* .forum-post-header {
+  display: flex;
+  min-width: 100%;
+  background: var(--hs-dark-medium-brown);
+} */
 
 .forum-post-header .avatar-area {
   padding: 0.5%;
@@ -749,6 +761,39 @@ body {
   height: 100%;
   border-radius: 0.5em;
 }
+
+/*#endregion */
+
+/*#region Form Inputs */
+
+input.search-bar{
+  border: none;
+  padding: 5%;
+  background: rgba(0 , 0 , 0 , 0.25);
+}
+
+input.search-bar:focus{
+  background: rgba(0 , 0 , 0 , 0.1);
+  /* transition: background 0.5s; */
+}
+
+/*#engregion */
+
+
+/*#region Forum Nav */
+#forum-nav{
+  --px: 5%;
+  --py: 2.5%;
+  /* padding-left: var(--px);
+  padding-right: var(--px); */
+  padding: var(--py) var(--px) var(--py) var(--px);
+}
+
+#forum-nav .wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+/*#endregion */
 
 .break {
   background: var(--hs-dark-brown);

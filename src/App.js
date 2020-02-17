@@ -64,7 +64,7 @@ class App extends Component {
               <Route path="/deck-builder" exact={false}>
                 <DeckBuilder />
               </Route>
-              <Route path="/forums">
+              <Route path="/forums/page/:page_id">
                 <ForumHome />
               </Route>
               <Route exact path="/credits" component={Credits} />

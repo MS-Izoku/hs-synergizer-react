@@ -1,47 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
 import { createMarkup } from "../../services/helperScripts";
-import { MDBContainer, MDBCardHeader, MDBIcon, MDBMedia } from "mdbreact";
 
-import Comment from "../Comment";
-import { tempData } from "../../App";
-
-class ForumPost extends Component {
-  constructor() {
-    super();
-    this.state = {
-      inEditor: false,
-      body: "<p>Body Text of a Forum Post</p>",
-      user: { username: "Vilhelm" },
-      comments: [tempData.comment]
-    };
-  }
-
-  renderComments = () => {
-    return this.state.comments.map(comment => <Comment comment={comment} />);
+const ForumPost = props => {
+  const renderPostHTML = () => {
+    return <div dangerouslySetInnerHTML={createMarkup(props.post.body)} />;
   };
 
-  renderPostHTML = () => {
-    return <div dangerouslySetInnerHTML={createMarkup(this.props.post.body)} />;
-  };
-
-  render() {
-    return (
-      <div className="bg-white card">
-        <div>
-          <img src={this.props.post.user.avatar} alt={"user-avatar"} />
-          <h2>{this.props.post.user.username}</h2>
-        </div>
-        <div className="bg-info">
-          <header>
-            <h2>{this.props.post.title}</h2>
-          </header>
-          <div className="">{this.renderPostHTML()}</div>
-          <hr />
-          <div className="">{this.props.post.user.tagLine}</div>
-        </div>
+  return (
+    <div className="forum-post-header">
+      <div className="avatar-area">
+        <img
+          className="forum-avatar"
+          src={props.post.user.avatar}
+          alt={"user-avatar"}
+        />
+        <h2>{props.post.user.username}</h2>
       </div>
-    );
-  }
-}
+      <div className="content-area">
+        <header>
+          <h2>{props.post.title}</h2>
+        </header>
+        <div className="post-content">{renderPostHTML()}</div>
+        <hr className="break" />
+        <div className="tagline">{props.post.user.tagLine}</div>
+      </div>
+    </div>
+  );
+};
 
-export default ForumPost;
+export default ForumPost
