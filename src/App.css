@@ -12,6 +12,9 @@
 
   --background: #202e80;
 
+  --link-color: rgb(20, 173, 211);
+  --link-hover-color: rgb(158, 223, 240);
+
   /* Any copyrighted images found on this site are currently only temporary placeholders */
   /* All unowned copywrited material will be removed prior to deployment */
   --main-background-image: url("https://img.glyphs.co/img?src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL3Jlc291cmNlcy9TZWFtbGVzc19Xb29kX1RleHR1cmVzX1ZvbF8yXzgwMHg1MTgtMS5qcGc&q=90&enlarge=true&h=1036&w=1600"); /* main background image, WIP */
@@ -31,6 +34,15 @@
 * {
   /* font-family: var(--bebas-neue); */
   font-family: var(--noto-tc);
+}
+
+a{
+  color: var(--link-color);
+}
+
+a:hover{
+  transition: color 0.25s;
+  color: var(--link-hover-color);
 }
 
 h2 {
@@ -481,32 +493,54 @@ body {
 }
 /*#endregion */
 
+
+/*#region Landing Page Guide / Forum Area */
 #guides{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
 }
-#guides div{
+
+#guides .expansion-guide , #guides #forums-area{
   display: flex;
   min-width: 45%;
   min-height: 50vh;
   width: 45%;
   border-radius: 0.5em;
-  background-size: contain;
+  /* background-size: contain; */
 }
 
-#guides div a{
 
+
+#guides .expansion-guide:hover{
+  transition: background 0.5s;
+  background: rgba(0 , 0 , 0 , 0.5);
+  background-blend-mode: multiply;
 }
 
 #guides footer{
   display: flex;
   margin: auto;
   margin-bottom: 2%;
-  background: rgba(0 , 0 , 0 , 0.25);
+  background: rgba(0 , 0 , 0 , 0.5);
   width: 100%;
   justify-content: center;
+  border-top: 4px solid rgba(0 , 0 , 0 , 0.25);
+  border-bottom: 4px solid rgba(0 , 0 , 0 , 0.25);
+}
+/*#endregion */
+
+#forums-area{
+  display: flex;
+  flex-direction: column;
+}
+
+#forums-area .forum-tab{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+
 }
 
 .landing-splash {

@@ -16,6 +16,38 @@ export default class LandingPage extends Component {
         { name: "Deck4", upvotes: 10, set_img: "#", dustCost: 25000 },
         { name: "Deck5", upvotes: 10, set_img: "#", dustCost: 25000 }
       ],
+      threads: [
+        {
+          title: "Forum Thread Header",
+          upvotes: 10,
+          views: 200
+        },
+        {
+          title: "Forum Thread Header",
+          upvotes: 10,
+          views: 200
+        },
+        {
+          title: "Forum Thread Header",
+          upvotes: 10,
+          views: 200
+        },
+        {
+          title: "Forum Thread Header",
+          upvotes: 10,
+          views: 200
+        },
+        {
+          title: "Forum Thread Header",
+          upvotes: 10,
+          views: 200
+        },
+        {
+          title: "Forum Thread Header",
+          upvotes: 10,
+          views: 200
+        },
+      ],
       expansionGuide: {
         img:
           "https://i.pinimg.com/originals/c8/52/8f/c8528f5de027470ffb7b181d1449874b.jpg",
@@ -44,10 +76,10 @@ export default class LandingPage extends Component {
         </section>
         <section id="guides" className="page-section">
           <div
-            className="expansion-guide"
-            style={{ 
-              background: "red",
-              backgroundImage: `url(${this.state.expansionGuide.img})` }}
+            className="expansion-guide drop-shadow"
+            style={{
+              backgroundImage: `url(${this.state.expansionGuide.img})`
+            }}
           >
             <footer>
               <Link to={"/guides"}>
@@ -56,7 +88,11 @@ export default class LandingPage extends Component {
             </footer>
           </div>
 
-          <div>Forums</div>
+          <div id="forums-area" className="drop-shadow">
+            {this.state.threads.map(thread => (
+              <ForumTab thread={thread} />
+            ))}
+          </div>
         </section>
         <section id="articles">
           <header className="section-header-wrapper">
@@ -83,3 +119,13 @@ export default class LandingPage extends Component {
     );
   }
 }
+
+const ForumTab = props => {
+  return (
+    <div className="forum-tab bg-info">
+      <h2>{props.thread.title}</h2>
+      <div >{props.thread.views}</div>
+      <div >{props.thread.upvotes}</div>
+    </div>
+  );
+};
