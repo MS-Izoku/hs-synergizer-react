@@ -103,7 +103,6 @@ class PaginatorV2 extends Component {
 
 const PaginatorTab = props => {
   const getPageNumber = `${props.getActivePage(props.pageNumber)}`
-  console.log("Target Page Number: " + getPageNumber , props.pageNumber)
   return (
     <Link to={getPageNumber}>
       <button

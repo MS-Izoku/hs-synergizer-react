@@ -87,31 +87,45 @@ class ForumHome extends Component {
 
   render() {
     return (
-      <section className="page-section">
-        <header className="container bg-info my-2">
-          <h2 className="row">
-            <span className="col text-center">Hot off the Forums</span>
-          </h2>
-        </header>
-
-        <div className="mx-2 px-5">{this.renderThreads()}</div>
-        <div id="forum-nav">
-          <div className="wrapper">
-            <SearchBar />
-            <p className="hoverable">New Post</p>
+      <>
+        <section className="page-section">
+          <div className="forum-home-area">
+            <header><h2>AREA 1</h2></header>
+            <div className="wrapper">
+              <div className="topic">
+                <MDBIcon icon="search"/>
+                <h3>Topic</h3>
+              </div>
+            </div>
           </div>
-          <div className="wrapper">
-            <PaginatorV2
-              changePage={this.changePage}
-              pageCount={this.state.pageCount}
-              pageRange={this.state.pageRange}
-              page={this.state.page}
-            />
-          </div>
-        </div>
+        </section>
 
-        <ForumPostForm />
-      </section>
+        <section className="page-section">
+          <header className="container bg-info my-2">
+            <h2 className="row">
+              <span className="col text-center">Forums</span>
+            </h2>
+          </header>
+
+          <div className="mx-2 px-5">{this.renderThreads()}</div>
+          <div id="forum-nav">
+            <div className="wrapper">
+              <SearchBar />
+              <p className="hoverable">New Post</p>
+            </div>
+            <div className="wrapper">
+              <PaginatorV2
+                changePage={this.changePage}
+                pageCount={this.state.pageCount}
+                pageRange={this.state.pageRange}
+                page={this.state.page}
+              />
+            </div>
+          </div>
+
+          <ForumPostForm />
+        </section>
+      </>
     );
   }
 }
@@ -119,6 +133,10 @@ class ForumHome extends Component {
 class SearchBar extends Component {
   state = {
     searchValue: ""
+  };
+
+  onChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
