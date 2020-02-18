@@ -4,6 +4,7 @@ import LandingSplash from "../components/LandingSplash";
 import ArticleCard from "../components/ArticleCard";
 import { Link } from "react-router-dom";
 import UpvoteComponent from "../components/core/UpvoteComponent";
+import ViewCountComponent from "../components/core/ViewCountComponent";
 
 export default class LandingPage extends Component {
   constructor() {
@@ -47,7 +48,7 @@ export default class LandingPage extends Component {
           title: "Forum Thread Header",
           upvotes: 10,
           views: 200
-        },
+        }
       ],
       expansionGuide: {
         img:
@@ -90,9 +91,13 @@ export default class LandingPage extends Component {
           </div>
 
           <div id="forums-area" className="drop-shadow">
+            <header>
+              <h2>Hot Off the Forums</h2>
+            </header>
             {this.state.threads.map(thread => (
               <ForumTab thread={thread} />
             ))}
+            <footer>footer</footer>
           </div>
         </section>
         <section id="articles">
@@ -123,10 +128,15 @@ export default class LandingPage extends Component {
 
 const ForumTab = props => {
   return (
-    <div className="forum-tab bg-info">
-      <h2>{props.thread.title}</h2>
-      <div><UpvoteComponent upvoted={false} handleClick={()=> {console.log("event")}} />{props.thread.views}</div>
-      <div >{props.thread.upvotes}</div>
+    <div className="forum-tab">
+      <div><h2>{props.thread.title}</h2></div>
+      <div>
+        <UpvoteComponent upvoted={false} handleClick={() => null} />
+        {props.thread.upvotes}
+      </div>
+      <div>
+        <ViewCountComponent viewCount={props.views} />
+      </div>
     </div>
   );
 };

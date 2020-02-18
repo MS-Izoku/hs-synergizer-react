@@ -54,6 +54,20 @@ body {
   flex-direction: column;
 }
 
+.page-icon{
+  color: var(--hs-gold);
+}
+
+.page-icon.interactable:hover{
+  transition: color 0.1s;
+  color: rgb(171, 226, 230);
+}
+
+.page-icon.interactable:active{
+  transition: color 0.1s;
+  color: var(--hs-gold);
+}
+
 #main-display-wrapper {
   min-width: 100%;
   width: 100%;
@@ -503,6 +517,7 @@ body {
 }
 
 #guides .expansion-guide , #guides #forums-area{
+  background: var(--hs-dark-brown);
   display: flex;
   min-width: 45%;
   min-height: 50vh;
@@ -510,14 +525,25 @@ body {
   border-radius: 0.5em;
   /* background-size: contain; */
 }
+#guides #forums-area header h2{
+  color: white;
+  text-align: center;
+}
 
 #guides #forums-area .forum-tab{
-  border: 5px solid black;
+  color: white;
+  font-size: 1em;
+  background: var(--hs-dark-medium-brown);
+  border: 5px solid var(--hs-gold);
   display: flex;
   justify-content: space-between;
-  margin: auto;
   padding-left: 24px;
   padding-right: 24px;
+}
+
+.forum-tab div{
+  display: flex;
+  margin: auto;
 }
 
 .forum-tab h2{
