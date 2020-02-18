@@ -481,6 +481,34 @@ body {
 }
 /*#endregion */
 
+#guides{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+#guides div{
+  display: flex;
+  min-width: 45%;
+  min-height: 50vh;
+  width: 45%;
+  border-radius: 0.5em;
+  background-size: contain;
+}
+
+#guides div a{
+
+}
+
+#guides footer{
+  display: flex;
+  margin: auto;
+  margin-bottom: 2%;
+  background: rgba(0 , 0 , 0 , 0.25);
+  width: 100%;
+  justify-content: center;
+}
+
 .landing-splash {
   background: blue;
   width: 100%;
