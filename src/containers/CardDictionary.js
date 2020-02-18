@@ -3,7 +3,7 @@ import TCGCard from "../components/core/TCGCard";
 import { convertCardsFromSerializer } from "../serializerConverter";
 import { range } from "lodash";
 
-import Paginator from "../components/Paginator";
+// import Paginator from "../components/Paginator";
 import cardData from "../services/CardDataHandler";
 
 export default class CardDictionary extends Component {

@@ -7,7 +7,7 @@ const cardData = {
   createCardData: () => {
     // check if the stuff exists in sessionstorage
     if (window.sessionStorage[tokenName] !== undefined) {
-      const data = JSON.parse(window.sessionStorage[tokenName]);
+      let data = JSON.parse(window.sessionStorage[tokenName]);
       console.log("Data Found!");
       if (data.cards[0].name === "ERROR") {
         // check if the first object is an error
@@ -50,7 +50,6 @@ const parseSingleRawCardData = cardData => {
     flavorText: cardData.attributes.flavor_text,
     health: cardData.attributes.health,
     id: cardData.attributes.id,
-    img: cardData.attributes.img,
     imgGold: cardData.attributes.img_gold
   };
 };
@@ -59,7 +58,7 @@ const fetchData = () =>
   fetch(cardIndexURL)
     .then(resp => resp.json())
     .then(json => {
-      console.log("FETCHING")
+      console.log("FETCHING");
       const parsedCardData = json.data.map(card =>
         parseSingleRawCardData(card)
       );
@@ -89,7 +88,6 @@ const fetchData = () =>
             flavorText: "Cards Cannot Load",
             health: 0,
             id: 0,
-            img: "",
             imgGold: ""
           }
         ]

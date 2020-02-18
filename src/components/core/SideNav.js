@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { MDBIcon } from "mdbreact";
-import { Link, BrowserRouter as Router } from "react-router-dom";
-import {withRouter} from 'react-router'
 
 class SideNav extends Component {
   handleNavToggle = () => {

@@ -83,7 +83,6 @@ class PaginatorBar extends Component {
         clickHandler={this.props.handlePageChange}
         setActiveTab={this.props.setActiveTab}
         activeTab={this.props.activeTab}
-        setActiveTab={this.props.setActiveTab}
         path={this.props.path}
       />
     ));
@@ -98,7 +97,6 @@ class PaginatorBar extends Component {
             clickHandler={this.props.handlePageChange}
             setActiveTab={this.props.setActiveTab}
             activeTab={this.props.activeTab}
-            setActiveTab={this.props.setActiveTab}
             tabCount={this.props.tabCount}
           />
           <PaginatorTab
@@ -107,7 +105,6 @@ class PaginatorBar extends Component {
             clickHandler={this.props.handlePageChange}
             setActiveTab={this.props.setActiveTab}
             activeTab={this.props.activeTab}
-            setActiveTab={this.props.setActiveTab}
             tabCount={this.props.tabCount}
           />
         </div>
@@ -121,7 +118,6 @@ class PaginatorBar extends Component {
             clickHandler={this.props.handlePageChange}
             setActiveTab={this.props.setActiveTab}
             activeTab={this.props.activeTab}
-            setActiveTab={this.props.setActiveTab}
             tabCount={this.props.tabCount}
           />
           <PaginatorTab
@@ -130,7 +126,6 @@ class PaginatorBar extends Component {
             clickHandler={this.props.handlePageChange}
             setActiveTab={this.props.setActiveTab}
             activeTab={this.props.activeTab}
-            setActiveTab={this.props.setActiveTab}
             tabCount={this.props.tabCount}
           />
         </div>

@@ -38,7 +38,7 @@ class DeckCard extends Component {
             <img src="#" alt="divider" className="divider" />
             <img
               src={this.props.deck.set_img !== undefined ? this.props.deck.setImg : "#"}
-              alt="set-image"
+              alt="card-set-icon"
               className="icon"
             />
             <img src="#" alt="divider" className="divider" />
