@@ -3,6 +3,7 @@ import DeckCardContainer from "../containers/DeckCardContainer";
 import LandingSplash from "../components/LandingSplash";
 import ArticleCard from "../components/ArticleCard";
 import { Link } from "react-router-dom";
+import UpvoteComponent from "../components/core/UpvoteComponent";
 
 export default class LandingPage extends Component {
   constructor() {
@@ -124,7 +125,7 @@ const ForumTab = props => {
   return (
     <div className="forum-tab bg-info">
       <h2>{props.thread.title}</h2>
-      <div >{props.thread.views}</div>
+      <div><UpvoteComponent upvoted={false} handleClick={()=> {console.log("event")}} />{props.thread.views}</div>
       <div >{props.thread.upvotes}</div>
     </div>
   );

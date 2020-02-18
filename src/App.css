@@ -511,6 +511,18 @@ body {
   /* background-size: contain; */
 }
 
+#guides #forums-area .forum-tab{
+  border: 5px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.forum-tab h2{
+  font-size: 1.5em;
+}
 
 
 #guides .expansion-guide:hover{
