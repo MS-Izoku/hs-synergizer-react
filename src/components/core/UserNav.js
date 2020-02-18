@@ -10,7 +10,7 @@ class UserNav extends Component {
 render() {
     return (
       <div id="user-nav">
-        <MDBIcon icon="user-circle" size="3x"/>
+        <MDBIcon icon="user-circle" size="3x" className="page-icon interactable"/>
       </div>
     );
   }
