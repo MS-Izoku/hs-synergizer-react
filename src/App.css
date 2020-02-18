@@ -552,9 +552,9 @@ body {
 
 
 #guides .expansion-guide:hover{
-  transition: background 0.5s;
   background: rgba(0 , 0 , 0 , 0.5);
   background-blend-mode: multiply;
+  transition: background 0.75s;
 }
 
 #guides footer{
@@ -582,7 +582,9 @@ body {
 }
 
 .landing-splash {
-  background: blue;
+  background: rgba(0 , 0 , 0, 0.75);
+  background-size: cover;
+  background-blend-mode: multiply;
   width: 100%;
 }
 
