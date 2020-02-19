@@ -68,6 +68,16 @@ body {
   color: var(--hs-gold);
 }
 
+.set-icon{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.set-icon img{
+  width: 3em;
+}
+
 #main-display-wrapper {
   min-width: 100%;
   width: 100%;

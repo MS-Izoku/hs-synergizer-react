@@ -75,7 +75,9 @@ const SetIcon = props => {
     }
   };
   return (
-    <img src={getIcon(props.setName)} alt="card-set-icon" className="icon" />
+    <div className="set-icon">
+      <img src={getIcon(props.setName)} alt="card-set-icon" />
+    </div>
   );
 };
 
