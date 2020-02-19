@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import UpvoteComponent from "./core/UpvoteComponent";
+import { MDBIcon } from "mdbreact";
+import SetIcon from './SetIcon'
 
 class DeckCard extends Component {
   constructor(props) {
@@ -11,8 +14,6 @@ class DeckCard extends Component {
   handleHover = () => {
     console.log("Hovering (PlaceHolder)");
   };
-
-
 
   handleLike = () => {
     console.log("Liking Post (PlaceHolder)");
@@ -28,39 +29,30 @@ class DeckCard extends Component {
   render() {
     return (
       <div className="deck-card-container">
-        <div className="deck-card px-2 py-2">
+        <div className="deck-card">
           <header>
-            <h2>
-              {this.props.deck.name !== undefined ? this.props.deck.name : "--Deck Name--"}
-            </h2>
+            <h2>{this.props.deck.name}</h2>
           </header>
-          <div className="flex padding-10">
+          <div className="middle">
             <img src="#" alt="divider" className="divider" />
-            <img
-              src={this.props.deck.set_img !== undefined ? this.props.deck.setImg : "#"}
-              alt="card-set-icon"
-              className="icon"
-            />
+            <SetIcon set={"Witchwood"} />
             <img src="#" alt="divider" className="divider" />
           </div>
-          <div className="flex deck-stats">
-            <div className="flex">
-              <img src="#" alt="dust-img" className="icon" />{" "}
-              {this.props.deck.dustCost !== undefined ? this.props.deck.dustCost : "-----"}
-            </div>
-            <hr />
+          <div className="bottom">
+            <span>
+              <MDBIcon icon="wine-bottle" />{" "}
+              {this.props.deck.dustCost !== undefined
+                ? this.props.deck.dustCost
+                : "-----"}
+            </span>
+
             <img src="#" alt="deck-curve" />
           </div>
         </div>
 
-        <p
-          className={
-            (this.state.liked ? "liked" : "") + " upvote-container flex"
-          }
-        >
-          <img src="#" alt="upvote" onClick={this.handleLike} />{" " + this.state.likeCount}
-          
-        </p>
+        <div className="upvote-container">
+          <UpvoteComponent upvotes={1} handleClick={this.handleLike}/>
+        </div>
       </div>
     );
   }
