@@ -26,15 +26,57 @@ import decentOfDragons from "../images/hs-icons/SVG/Set_Dragons.svg";
 
 const SetIcon = props => {
   const getIcon = setName => {
-    let targetImg = classic
-    switch(setName){
-        case "Goblins Vs Gnomes":
-            return goblinsVsGnones;
-        default:
-            return classic
+    let targetImg = classic;
+    switch (setName) {
+      case "Basic":
+        return basic;
+      case "Classic":
+        return classic;
+
+      case "Goblins vs Gnones":
+        return goblinsVsGnones;
+      case "Old Gods":
+        return oldGods;
+      case "Blackrock Mountain":
+        return blackRockMountain;
+      case "Mean Streets of Gadgetzan":
+        return meanStreetsOfGadgetzan;
+      case "Hall of Fame":
+        return hallOfFame;
+      case "The Grand Tournament":
+        return theGrandTournament;
+      case "Curse of Naxxaramas":
+        return naxxaramas;
+      case "Kobolds and Catacombs":
+        return koboldsAndCatacombs;
+      case "One Night in Karazhan":
+        return karazhan;
+      case "Icecrown":
+        return icecrown;
+      case "League of Explorers":
+        return leagueOfExplorers;
+      case "Ungoro":
+        return ungoro;
+
+      case "The Witchwood":
+        return witchwood;
+      case "The Boomsday Project":
+        return boomsday;
+      case "Rastakhan's Rumble":
+        return rastakhansRumble;
+      case "Rise of Shadows":
+        return riseOfShadows;
+      case "Saviors of Uldum":
+        return saviorsOfUldum;
+      case "Decent of Dragons":
+        return decentOfDragons;
+      default:
+        return classic;
     }
   };
-  return <img src={getIcon(props.setName)} alt="card-set-icon" className="icon" />;
+  return (
+    <img src={getIcon(props.setName)} alt="card-set-icon" className="icon" />
+  );
 };
 
 export default SetIcon;
