@@ -368,6 +368,11 @@ body {
   box-shadow: 0px 10px 30px black;
 }
 
+.deck-card .middle , .deck-card .bottom{
+  display: flex;
+  justify-content: space-between;
+}
+
 .deck-card h2 {
   color: white;
 }
