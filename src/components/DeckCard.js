@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UpvoteComponent from "./core/UpvoteComponent";
 import { MDBIcon } from "mdbreact";
+import SetIcon from './SetIcon'
 
 class DeckCard extends Component {
   constructor(props) {
@@ -34,15 +35,7 @@ class DeckCard extends Component {
           </header>
           <div className="middle">
             <img src="#" alt="divider" className="divider" />
-            <img
-              src={
-                this.props.deck.set_img !== undefined
-                  ? this.props.deck.setImg
-                  : "#"
-              }
-              alt="card-set-icon"
-              className="icon"
-            />
+            <SetIcon set={"Witchwood"} />
             <img src="#" alt="divider" className="divider" />
           </div>
           <div className="bottom">

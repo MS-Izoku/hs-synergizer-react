@@ -54,6 +54,12 @@ class Credits extends Component {
             <li>MDBReact</li>
             <li>Blizzard Entertainment (Hearthstone Art)</li>
             <li>Deckstrings (Deck code decoder/encoder)</li>
+            <li>
+              <a href="https://github.com/HearthSim/hs-icons">
+                HearthSim & andburn
+              </a>{" "}
+              who's Hearthstone Icons made this site work, please check them out
+            </li>
           </ul>
           <h2>The Great Artists of Hearthstone</h2>
           {this.createArtistList()}
