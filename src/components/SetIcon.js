@@ -1,5 +1,5 @@
 import React from "react";
-
+/*
 import basic from "../images/hs-icons/SVG/Set_Basic.svg";
 import classic from "../images/hs-icons/SVG/Set_Classic.svg";
 
@@ -22,7 +22,7 @@ import rastakhansRumble from "../images/hs-icons/SVG/Set_Troll.svg";
 
 import riseOfShadows from "../images/hs-icons/SVG/Set_Shadows.svg";
 import saviorsOfUldum from "../images/hs-icons/SVG/Set_Saviors.svg";
-import decentOfDragons from "../images/hs-icons/SVG/Set_Dragons.svg";
+import descentOfDragons from "../images/hs-icons/SVG/Set_Dragons.svg";
 
 const SetIcon = props => {
   const getIcon = setName => {
@@ -68,8 +68,8 @@ const SetIcon = props => {
         return riseOfShadows;
       case "Saviors of Uldum":
         return saviorsOfUldum;
-      case "Decent of Dragons":
-        return decentOfDragons;
+      case "Descent of Dragons":
+        return descentOfDragons;
       default:
         return classic;
     }
@@ -80,5 +80,9 @@ const SetIcon = props => {
     </div>
   );
 };
+
+*/
+
+const SetIcon = () =><div>Set Icon!</div>
 
 export default SetIcon;
