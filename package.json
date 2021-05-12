@@ -10,7 +10,7 @@
     "deckstrings": "^2.1.0",
     "dompurify": "^2.0.7",
     "lodash": "^4.17.15",
-    "mathjs": "^6.5.0",
+    "mathjs": "^7.5.1",
     "mdbreact": "^4.24.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
